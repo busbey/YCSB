@@ -25,7 +25,7 @@ Other sample DB interface layer classes are distributed in src/com/yahoo/ycsb/db
 
 Note that these classes will not be built using a normal ant execution, and not included in the resulting ycsb.jar. Thus, to use these classes, you will need to 1. have them on your classpath, and 2. have any required libraries also on your classpath. For example, the Cassandra database interface layer is com.yahoo.ycsb.db.CassandraClient, and requires the libthrift.jar (among others) to be accessible on your classpath.
 <P>
-For more details about implementing a DB interface layer, see XXX.
+For more details about implementing a DB interface layer, see [[Adding a Database]].
 <h3>Step 3. Choose the appropriate workload</h3>
 The workload defines the data that will be loaded into the database during the <I>loading</I> phase, and the operations that will be executed against the data set during the <I>transaction</I> phase.
 
