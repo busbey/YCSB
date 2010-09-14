@@ -59,7 +59,7 @@ Of course, if you don't want both HBase and Cassandra, you can just build one or
 
 Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions. Some details are listed in [[Using the HBase and Cassandra Libraries]].
 
-<B>Note:</B> in the post 0.1.1 master branch, DB code and libraries have been moved up to YCSB/db. For example, hbase is now in YCSB/db/hbase. So when you copy the jars, to appropriate location is now YCSB/db/<databasename>/lib.
+<B>Note:</B> In the post 0.1.1 master branch, DB code and libraries have been moved up to YCSB/db. For example, hbase is now in YCSB/db/hbase. So when you copy the jars, to appropriate location is now YCSB/db/<databasename>/lib.
 
 h3. 4. Now, run a workload
 
