@@ -7,7 +7,7 @@ The included code works with HBase version 0.20.3. To use YCSB with HBase:
 <OL>
 <LI> Use the com.yahoo.ycsb.db.HBaseClient class for the DB layer
 <LI> The HBase client must know how to contact the HBase Zookeeper instance.  One easy way to do this is to copy hbase-0.20.3/conf/hbase-site.xml from an HBase server to your ycsb directory.   For more details, see <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description.</A>
-<LI> Make sure the the HBase jars, ycsb/lib jars, and ycsb.jar are all available on your classpath.
+<LI> Make sure the the HBase jars and ycsb.jar are all available on your classpath.
 </OL>
 
 h2. Using the Cassandra library
