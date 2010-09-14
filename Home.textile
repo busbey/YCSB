@@ -1,5 +1,7 @@
 <h1><IMG SRC="http://www.brianfrankcooper.net/ycsblogo-small.png">&nbsp;&nbsp;&nbsp;Yahoo! Cloud Serving Benchmark (YCSB)</H1>
 
+Latest version tag: 0.1.0
+
 h2. Links
 
 <A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A><BR>
