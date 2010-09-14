@@ -24,6 +24,7 @@ There are many new serving databases available, including:
  * <A HREF="http://incubator.apache.org/cassandra/">Cassandra</A>
  * <A HREF="http://couchdb.apache.org/">CouchDB</A>
  * <A HREF="http://project-voldemort.com/">Voldemort</A>
+ * <A HREF="http://www.mongodb.org/">MongoDb</A>
  * <A HREF="http://wiki.github.com/cliffmoon/dynomite/dynomite-framework">Dynomite</A>
 ...and many others
 
