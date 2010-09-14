@@ -1,1 +1,11 @@
 Welcome to the YCSB wiki!
+
+<HR>
+
+<B>User discussion list: <B><P>
+ycsb-users@yahoogroups.com
+http://groups.yahoo.com/group/ycsb-users
+
+<B>Source code:</B><P>
+
+http://github.com/brianfrankcooper/YCSB/
