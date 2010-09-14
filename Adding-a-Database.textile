@@ -61,21 +61,21 @@ Your code can be compiled separately from the compilation of the YCSB Client and
 A simple way to test your layer is to use it with the simple command line client included with YCSB. This client creates a DB instance, and allows you to interact directly with the database without having to start a workload. For example, to use the command line client with the MongoDB binding:
 
 <PRE>
-% java com.yahoo.ycsb.CommandLine -db com.yahoo.ycsb.db.MongoDbClient -p mongodb.url=mongodb://localhost:27017 -p mongodb.database=ycsb 
-YCSB Command Line client
-Type "help" for command line help
-Start with "-help" for usage info
-Connected.
-> insert brianfrankcooper first=brian last=cooper
-Return code: 1
-191 ms
-> read brianfrankcooper
-Return code: 0
-last=cooper
-_id=brianfrankcooper
-first=brian
-2 ms
-> quit
+  % java com.yahoo.ycsb.CommandLine -db com.yahoo.ycsb.db.MongoDbClient -p mongodb.url=mongodb://localhost:27017 -p mongodb.database=ycsb 
+  YCSB Command Line client
+  Type "help" for command line help
+  Start with "-help" for usage info
+  Connected.
+  > insert brianfrankcooper first=brian last=cooper
+  Return code: 1
+  191 ms
+  > read brianfrankcooper
+  Return code: 0
+  last=cooper
+  _id=brianfrankcooper
+  first=brian
+  2 ms
+  > quit
 </PRE>
 
 <h3>Step 6 - Use it with the YCSB Client</h3>
