@@ -9,7 +9,7 @@ There are 6 steps to running a workload:
 <LI>Execute the workload
 </OL>
 
-The steps described here assume you are running a single client server. This should be sufficient for small to medium clusters (e.g. 10 or so machines). For much larger clusters, you may have to run multiple clients on different servers to generate enough load. Similarly, loading a database may be faster in some cases using multiple client machines. For more details on running multiple clients in parallel, see XXXX.
+The steps described here assume you are running a single client server. This should be sufficient for small to medium clusters (e.g. 10 or so machines). For much larger clusters, you may have to run multiple clients on different servers to generate enough load. Similarly, loading a database may be faster in some cases using multiple client machines. For more details on running multiple clients in parallel, see [[Running a Workload in Parallel]].
 <H3>Step 1. Set up the database system to test</H3>
 The first step is to set up the database system you wish to test. This can be done on a single machine or a cluster, depending on the configuration you wish to benchmark.
 <P>
