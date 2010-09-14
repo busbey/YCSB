@@ -141,10 +141,10 @@ Typically you will want to use the "-threads" and "-target" parameters to contro
   %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s -threads 10 -target 100 > transactions.dat
 </PRE>
 
-Note in this example we have used the "-threads 10" command line parameter to specify 10 threads, and "-target 100" command line parameter to specify 100 operations per second as the target. Alternatively, both values can be set in your parameters file using the "threads" and "target" properties respectively. For example:
+Note in this example we have used the "-threads 10" command line parameter to specify 10 threads, and "-target 100" command line parameter to specify 100 operations per second as the target. Alternatively, both values can be set in your parameters file using the "threadcount" and "target" properties respectively. For example:
 
 <PRE>
-  threads=10
+  threadcount=10
   target=100
 </PRE>
 
