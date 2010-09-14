@@ -31,7 +31,7 @@ The core workloads included with YCSB are defined by a set of parameter files (w
   requestdistribution=zipfian
 </PRE>
 
-Creating a new file that changes any of these values will produce a new workload with different characteristics. The set of properties that can be specified is <a href="coreproperties.html">here</a>.
+Creating a new file that changes any of these values will produce a new workload with different characteristics. The set of properties that can be specified is in [[Core Properties]].
 
 <P>
 <h3>Option 2: new java class</h3>
