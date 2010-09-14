@@ -1,7 +1,14 @@
-YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The source tree currently contains code to interface with HBase and Cassandra, but it is straightforward to interface with other database systems.
+YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The source tree currently contains code to interface with HBase and Cassandra, but it is straightforward to interface with other database systems - see [[Adding a Database]].
 
 h3. To obtain YCSB source
 
 <PRE>
 git clone git://github.com/brianfrankcooper/YCSB.git
+</PRE>
+
+h3. To build the basic package
+
+<PRE>
+cd YCSB
+ant
 </PRE>
