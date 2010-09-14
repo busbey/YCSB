@@ -57,7 +57,7 @@ At the end of this process, the ycsb.jar file in the build/ directory will conta
 
 Of course, if you don't want both HBase and Cassandra, you can just build one or the other. 
 
-Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description for HBase-specific instructions.
+Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions.
 
 
 h3. 4. Now, run a workload
