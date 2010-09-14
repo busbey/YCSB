@@ -1,4 +1,4 @@
-Yahoo! Cloud Serving Benchmark (YCSB)
+<h1>Yahoo! Cloud Serving Benchmark (YCSB)</H1>
 
 <HR>
 
@@ -13,8 +13,6 @@ Yahoo! Cloud Serving Benchmark (YCSB)
 <B>Project page:</B><P>
 
 <A HREF="http://research.yahoo.com/Web_Information_Management/YCSB">http://research.yahoo.com/Web_Information_Management/YCSB</A>
-
-<HR>
 
 <H2>Overview</H2>
 
@@ -35,21 +33,15 @@ There are many new serving databases available, including:
 It is difficult to decide which system is right for your application, partially because the features differ between 
 systems, and partially because there is not an easy way to compare the performance of one system versus another.
 <P>
-The goal of the !YCSB project is to develop a framework and common set of workloads for evaluating the performance of
+The goal of the YCSB project is to develop a framework and common set of workloads for evaluating the performance of
 different "key-value" and "cloud" serving stores. The project comprises two things:
 <ul>
-<LI>The !YCSB Client, an extensible workload generator
+<LI>The YCSB Client, an extensible workload generator
 <LI>The Core workloads, a set of workload scenarios to be executed by the generator
 </UL>
-Although the core workloads provide a well rounded picture of a system's performance, the Client is extensible so that
-you can define new and different workloads to examine system aspects, or application scenarios, not adequately covered by
-the core workload. Similarly, the Client is extensible to support benchmarking different databases. Although we include
-sample code for benchmarking HBase and Cassandra, it is straightforward to write a new interface layer to benchmark
-your favorite database.
+Although the core workloads provide a well rounded picture of a system's performance, the Client is extensible so that you can define new and different workloads to examine system aspects, or application scenarios, not adequately covered by the core workload. Similarly, the Client is extensible to support benchmarking different databases. Although we include sample code for benchmarking HBase and Cassandra, it is straightforward to write a new interface layer to benchmark your favorite database.
 <P>
-A common use of the tool is to benchmark multiple systems and compare them. For example, you can install multiple systems
-on the same hardware configuration, and run the same workloads against each system. Then you can plot the performance 
-of each system (for example, as latency versus throughput curves) to see when one system does better than another.
+A common use of the tool is to benchmark multiple systems and compare them. For example, you can install multiple systems on the same hardware configuration, and run the same workloads against each system. Then you can plot the performance of each system (for example, as latency versus throughput curves) to see when one system does better than another.
 
 A paper describing the benchmark and some results is <A HREF="http://research.yahoo.com/node/3202">here</A>.
 
