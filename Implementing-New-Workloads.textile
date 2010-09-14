@@ -53,8 +53,7 @@ In either case, you can access the parameter properties using the Properties obj
 <H3>Step 3. Write any cleanup code</H3>
 The cleanup() method is called once for all workload instances, after the workload has completed.
 <H3>Step 4. Define the records to be inserted</H3>
-The YCSB Client will call the doInsert() method once for each record to be inserted into the database. So you should implement this method
-to create and insert a single record. The DB object you can use to perform the insert will be passed to the doInsert() method.
+The YCSB Client will call the doInsert() method once for each record to be inserted into the database. So you should implement this method to create and insert a single record. The DB object you can use to perform the insert will be passed to the doInsert() method.
 <H3>Step 5. Define the transactions</H3>
 The YCSB Client will call the doTransaction() method once for every transaction that is to be executed. So you should implement this method to execute a single transaction, using the DB object passed in to access the database. Your implementation of this method can choose between different types of transactions, and can make multiple calls to the DB interface layer. However, each invocation of the method should be a logical transaction. In particular, when you run the client, you'll specify the number of operations to execute; if you request 1000 operations then doTransaction() will be executed 1000 times.
 <P>
