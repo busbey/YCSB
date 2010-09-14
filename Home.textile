@@ -11,9 +11,7 @@ h2. Links
 
 <A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A><P>
 
-<B>Project page:</B><P>
-
-<A HREF="http://research.yahoo.com/Web_Information_Management/YCSB">http://research.yahoo.com/Web_Information_Management/YCSB</A>
+[[Papers and Presentations]]
 
 <H2>Overview</H2>
 
