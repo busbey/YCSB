@@ -11,18 +11,22 @@ The YCSB Client framework will create one instance of your DB class per worker t
 
 <H3>Step 2 - Implement init() if necessary</h3>
 You can perform any initialization of your DB object by implementing the following method
+
 <pre> 
   public void init() throws DBException
 </pre>
+
 to perform any initialization actions. The init() method will be called once per DB instance; so if there are multiple threads, each DB instance will have init() called separately.
 <P>
 The init() method should be used to set up the connection to the database and do any other initialization. In particular, you can configure your database layer using properties passed to the YCSB Client at runtime. In fact, the YCSB Client will pass to the DB interface layer 
 all of the properties specified in all parameter files specified when the Client starts up. Thus, you can create new properties for configuring your DB interface layer, set them in your parameter files (or on the command line), and then retrieve them inside your implementation of the DB interface layer. 
 <P>
 These properties will be passed to the DB instance <i>after</i> the constructor, so it is important to retrieve them only in the init() method and not the constructor. You can get the set of properties using the 
+
 <pre>
   public Properties getProperties()
 </pre>
+
 method which is already implemented and inherited from the DB base class.
 
 <h3>Step 3 - Implement the database query and update methods</h3>
@@ -53,6 +57,7 @@ The database should have the appropriate tables created before you run the bench
 Your code can be compiled separately from the compilation of the YCSB Client and framework. In particular, you can make changes to your DB class and recompile without having to recompile the YCSB Client.
 <h3>Step 5 - Use it with the YCSB Client</h3>
 Make sure that the classes for your implementation (or a jar containing those classes) are available on your CLASSPATH, as well as any libraries/jar files used by your implementation. Now, when you run the YCSB Client, specify the "-db" argument on the command line and provide the fully qualified classname of your DB class. For example, to run workloada with your DB class:
+
 <pre>
  %  java -cp build/ycsb.jar:yourjarpath com.yahoo.ycsb.Client -t -db com.foo.YourDBClass -P workloads/workloada -P large.dat -s > transactions.dat
 </pre>  
