@@ -55,7 +55,30 @@ In each case, the method takes a table name and record key. (In the case of scan
 The database should have the appropriate tables created before you run the benchmark. So you can assume in your implementation of the above methods that the appropriate tables already exist, and just write code to read or write from the tables named in the "table" parameter.
 <h3>Step 4 - Compile your database interface layer</h3>
 Your code can be compiled separately from the compilation of the YCSB Client and framework. In particular, you can make changes to your DB class and recompile without having to recompile the YCSB Client.
-<h3>Step 5 - Use it with the YCSB Client</h3>
+
+<h3>Step 5 - Test your database layer</h3>
+
+A simple way to test your layer is to use it with the simple command line client included with YCSB. This client creates a DB instance, and allows you to interact directly with the database without having to start a workload. For example, to use the command line client with the MongoDB binding:
+
+<PRE>
+% java com.yahoo.ycsb.CommandLine -db com.yahoo.ycsb.db.MongoDbClient -p mongodb.url=mongodb://localhost:27017 -p mongodb.database=ycsb 
+YCSB Command Line client
+Type "help" for command line help
+Start with "-help" for usage info
+Connected.
+> insert brianfrankcooper first=brian last=cooper
+Return code: 1
+191 ms
+> read brianfrankcooper
+Return code: 0
+last=cooper
+_id=brianfrankcooper
+first=brian
+2 ms
+> quit
+</PRE>
+
+<h3>Step 6 - Use it with the YCSB Client</h3>
 Make sure that the classes for your implementation (or a jar containing those classes) are available on your CLASSPATH, as well as any libraries/jar files used by your implementation. Now, when you run the YCSB Client, specify the "-db" argument on the command line and provide the fully qualified classname of your DB class. For example, to run workloada with your DB class:
 
 <pre>
@@ -63,6 +86,7 @@ Make sure that the classes for your implementation (or a jar containing those cl
 </pre>  
 
 You can also specify the DB interface layer using the DB property in your parameter file:
+
 <pre>
  db=com.foo.YourDBClass
 </pre>
