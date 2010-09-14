@@ -56,7 +56,7 @@ Although the workload class and paramters file define a specific workload, there
 
 Workloads have two executable phases: the <I>loading</I> phase (which defines the data to be inserted) and the <I>transactions</I> phase (which defines the operations to be executed against the data set.) To load the data, you run the YCSB Client and tell it to execute the <I>loading</I> section.
 <P>
-For example, consider the benchmark workload A (more details about the standard workloads are in [[CoreWorkloads]]). To load the standard dataset:
+For example, consider the benchmark workload A (more details about the standard workloads are in [[Core Workloads]]). To load the standard dataset:
 
 <PRE>
   %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada
