@@ -15,7 +15,7 @@ Or clone the git repository:
 
 h3. 2. Build the basic package
 
-YCSB requires java 1.6 to build.
+YCSB requires Java 1.5 or newer to build.
 
 <PRE>
   cd YCSB
