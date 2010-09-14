@@ -1,6 +1,5 @@
-
 <H2>Core workload package properties</h2>
-The property files used with the core workload generator can specify values for the following properties:<p>
+The property files used with the core workload generator can specify values for the following properties:
 <UL>
 <LI><b>fieldcount</b>: the number of fields in a record (default: 10) 
 <LI><b>fieldlength</b>: the size of each field (default: 100) 
