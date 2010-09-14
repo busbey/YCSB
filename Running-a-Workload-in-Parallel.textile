@@ -10,6 +10,7 @@ In some cases it makes sense to load the database using multiple servers. In thi
 These properties can be specified in a property file or on the command line using the -p option.
 
 For example, imagine you want to load 100 million records (so recordcount=100000000). Imagine you want to load with four clients. For the first client:
+
 <PRE>
   insertstart=0
   insertcount=25000000
