@@ -1,5 +1,4 @@
-
-YCSB includes a set of core workloads that define a basic benchmark for cloud systems. Of course, you can define your own workloads, as described <a href="workload.html">here</A>. However, the core workloads are a useful first step, and obtaining these benchmark numbers for a variety of different systems would allow you to understand the performance
+YCSB includes a set of core workloads that define a basic benchmark for cloud systems. Of course, you can define your own workloads, as described in [[Implementing New Workloads]]. However, the core workloads are a useful first step, and obtaining these benchmark numbers for a variety of different systems would allow you to understand the performance
 tradeoffs of different systems.
 <P>
 The core workloads consist of six different workloads:
