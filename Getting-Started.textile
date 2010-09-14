@@ -8,7 +8,13 @@ h3. To obtain YCSB source
 
 h3. To build the basic package
 
+YCSB requires java 1.6 to build.
+
 <PRE>
   cd YCSB
   ant
 </PRE>
+
+h3. To build HBase and Cassandra database layers
+
+First, you must obtain the HBase and Cassandra clients.
