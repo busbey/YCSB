@@ -39,9 +39,8 @@ A common use of the tool is to benchmark multiple systems and compare them. For 
 
 A paper describing the benchmark and some results is <A HREF="http://research.yahoo.com/node/3202">here</A>.
 
-h2. More information
+h2. Next
 
-[[Getting Started]]
-[[Running a Workload]]
-[[Adding a Database]]
-[[License]]
+1. [[Getting Started]]
+2. [[Running a Workload]]
+3. [[Adding a Database]]
