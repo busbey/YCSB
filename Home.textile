@@ -41,4 +41,5 @@ A paper describing the benchmark and some results is <A HREF="http://research.ya
 
 h2. More information
 
+[[Getting Started]]
 [[License]]
