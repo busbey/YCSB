@@ -25,22 +25,23 @@ After downloading the client files, copy the jars into YCSB/src/com/yahoo/ycsb/d
 
 <PRE>
   cd hbase-0.20.3/
-  cp hbase-0.20.3.jar ../../YCSB/src/com/yahoo/ycsb/db/hbaselib/
+  cp hbase-0.20.3.jar ~/YCSB/src/com/yahoo/ycsb/db/hbaselib/
   cd lib/
-  cp *.jar ../../../YCSB/src/com/yahoo/ycsb/db/hbaselib/
+  cp *.jar ~/YCSB/src/com/yahoo/ycsb/db/hbaselib/
 </PRE>
 
 and 
 
 <PRE> 
   cd apache-cassandra-0.6.1/lib/
-  cp *.jar ../../../YCSB/src/com/yahoo/ycsb/db/cassandralib/
+  cp *.jar ~/YCSB/src/com/yahoo/ycsb/db/cassandralib/
 </PRE>
 
-Now, you can use the dbcompile-* targets to build each connector:
+Now, you can use the dbcompile-* targets to build each connector.
 
 <PRE>
   cd ~/YCSB/
+  ant
   ant dbcompile-hbase
   ant dbcompile-cassandra
 </PRE>
