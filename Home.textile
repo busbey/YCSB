@@ -16,7 +16,7 @@ Yahoo! Cloud Serving Benchmark (YCSB)
 
 <HR>
 
----++ Overview
+<H2>Overview</H2>
 
 There are many new serving databases available, including:
 <ul>
