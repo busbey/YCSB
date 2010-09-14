@@ -43,7 +43,7 @@ You specify both the java class and the parameter file on the command line when 
 The CoreWorkload is a package of standard workloads that is distributed with the YCSB and can be used directly. In particular, the CoreWorkload defines a simple mix of read/insert/update/scan operations. The relative frequency of each operation is defined in the parameter file, as are other properties of the workload. Thus, by changing the parameter file, a variety of different concrete workloads can be executed. For more details on the CoreWorkload, see [[Core Workloads]].
 
 <P>
-If the CoreWorkload does not satisfy your needs, you can define your own workload by subclassing the com.yahoo.ycsb.Workload class. Details for doing this are [Implementing New Workloads]].
+If the CoreWorkload does not satisfy your needs, you can define your own workload by subclassing the com.yahoo.ycsb.Workload class. Details for doing this are [[Implementing New Workloads]].
 
 <H3>Step 4. Choose the appropriate runtime parameters</H3>
 Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
@@ -56,7 +56,7 @@ Although the workload class and paramters file define a specific workload, there
 
 Workloads have two executable phases: the <I>loading</I> phase (which defines the data to be inserted) and the <I>transactions</I> phase (which defines the operations to be executed against the data set.) To load the data, you run the YCSB Client and tell it to execute the <I>loading</I> section.
 <P>
-For example, consider the benchmark workload A (more details about the standard workloads are XXX here XXX). To load the standard dataset:
+For example, consider the benchmark workload A (more details about the standard workloads are in [[CoreWorkloads]]). To load the standard dataset:
 
 <PRE>
   %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada
