@@ -1,0 +1,32 @@
+YCSB 0.1.2 includes client code to interact with HBase, Cassandra and MongoDB. This code works with particular versions of each system, and may have to be modified for future versions.
+
+h2. Using the HBase library
+
+The included code works with HBase version 0.20.3. To use YCSB with HBase:
+
+<OL>
+<LI> Use the com.yahoo.ycsb.db.HBaseClient class for the DB layer
+<LI> The HBase client must know how to contact the HBase Zookeeper instance.  One easy way to do this is to copy hbase-0.20.3/conf/hbase-site.xml from an HBase server to your ycsb directory.   For more details, see <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description.</A>
+<LI> Make sure the the HBase jars, ycsb/lib jars, and ycsb.jar are all available on your classpath.
+</OL>
+
+h2. Using the Cassandra library
+
+The included code works with Cassandra versions 0.5, 0.6 and 0.7. To use YCSB with Cassandra:
+
+<OL>
+<LI> Use the com.yahoo.ycsb.db.CassandraClientX class for the DB layer (where X is 5, 6 or 7 for version 0.5, 0.6 or 0.7 respectively)
+<LI> Make sure to define the "hosts" property, either in the configuration properties file (-P on the command line) or on the command line itself (-p on the command line.) Hosts should be a comma separated list of Cassandra server hostnames. Be sure to list all the hostnames, so that the client can load balance its connections among all of the servers.
+<LI> Make sure that the Cassandra jars are available on your classpath, in addition to ycsb.jar.
+</OL>
+
+h2. Using the MongoDB library
+
+The included code works with MongoDB version 1.4.2. To use YCSB with MongoDB:
+
+<OL> 
+<LI>Use the com.yahoo.ycsb.db.MongoDbClient class for the DB layer
+<LI> Make sure to define the mongodb.url property (for example, setting it to "mongodb://localhost:27017").
+<LI> You can also define mongodb.database (for example, "ycsb") and mongodb.writeConcern (to "normal", "strict" or "none")
+<LI> Make sure that the MongoDB jar, the slf4j jars, and the log4j jar are available on your classpath, in addition to ycsb.jar.
+</OL>
