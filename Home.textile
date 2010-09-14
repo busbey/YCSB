@@ -47,3 +47,7 @@ h2. Next
 3. [[Adding a Database]]
 
 Note: YCSB is newly released into open source as of 4/23/2010. We believe this documentation is fairly complete, but if you find bugs or inconsistencies, please email <A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A> or <a href="http://github.com/brianfrankcooper/YCSB/issues">file an issue</A>.
+
+h2. Other links
+
+[[Related Projects]]
