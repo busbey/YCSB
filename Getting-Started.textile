@@ -1,6 +1,6 @@
 YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The source tree currently contains code to interface with HBase and Cassandra, but it is straightforward to interface with other database systems - see [[Adding a Database]].
 
-h3. Obtain YCSB source
+h3. 1. Obtain YCSB source
 
 Download the latest version:
 
@@ -13,7 +13,7 @@ Or clone the git repository:
   git clone git://github.com/brianfrankcooper/YCSB.git
 </PRE>
 
-h3. To build the basic package
+h3. 2. Build the basic package
 
 YCSB requires java 1.6 to build.
 
@@ -22,7 +22,7 @@ YCSB requires java 1.6 to build.
   ant
 </PRE>
 
-h3. To build HBase and Cassandra database layers
+h3. 3. Build HBase and Cassandra database layers
 
 First, you must obtain the HBase and Cassandra clients.<P>
   * HBase: <A HREF="http://hadoop.apache.org/hbase/">http://hadoop.apache.org/hbase/</A> - YCSB has been built with version 0.20.3.
@@ -57,6 +57,6 @@ At the end of this process, the ycsb.jar file in the build/ directory will conta
 
 Of course, if you don't want both HBase and Cassandra, you can just build one or the other. 
 
-h3. Now, run a workload
+h3. 4. Now, run a workload
 
 See [[Running a Workload]].
