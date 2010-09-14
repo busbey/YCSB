@@ -28,9 +28,11 @@ Note that these classes will not be built using a normal ant execution, and not 
 For more details about implementing a DB interface layer, see [[Adding a Database]].
 <P>
 You can run commands directly against the database using the included simple command line client, com.yahoo.ycsb.CommandLine. This client uses the DB interface layer to send commands to the database. You can use this client to make sure that the DB layer is working properly, that your database is set up correctly, that the DB layer can connect to the database, and so on. It also provides a common interface for a variety of databases, and can be used to inspect data in the database. To run the command line client:
+
 <PRE>
  % java -cp build/ycsb.jar com.yahoo.ycsb.CommandLine -help
 </PRE>
+
 This will print usage information. 
 
 <h3>Step 3. Choose the appropriate workload</h3>
