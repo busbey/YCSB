@@ -18,6 +18,7 @@ YCSB requires java 1.6 to build.
 h3. To build HBase and Cassandra database layers
 
 First, you must obtain the HBase and Cassandra clients.<P>
+  * HBase: <A HREF="http://hadoop.apache.org/hbase/">http://hadoop.apache.org/hbase/</A> - YCSB has been built with version 0.20.3.
   * Cassandra: <A HREF="http://cassandra.apache.org/">http://cassandra.apache.org/</A> - YCSB has been built with version 0.5 and 0.6.
 
 After downloading the client files, copy the jars into YCSB/src/com/yahoo/ycsb/db/lib/. The db/ directory contains all code for interacting with external databases, and the db/lib/ directory should contain jars for building the connector code. For example:
