@@ -1,3 +1,3 @@
 h2. Voldemort
 
-Portions of YCSB have been used in the performance testing framework of Voldemort: <A HREF="http://github.com/voldemort/voldemort/commit/8462031d2d8b676b27f533f8f7de5631c8eb70dd#diff-15">http://github.com/voldemort/voldemort/commit/8462031d2d8b676b27f533f8f7de5631c8eb70dd#diff-15</A>
+Portions of YCSB have been used in the performance testing framework of Voldemort: <A HREF="http://github.com/voldemort/voldemort/commit/8462031d2d8b676b27f533f8f7de5631c8eb70dd">http://github.com/voldemort/voldemort/commit/8462031d2d8b676b27f533f8f7de5631c8eb70dd</A>
