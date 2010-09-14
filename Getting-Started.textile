@@ -24,4 +24,4 @@ After downloading the client files, copy the jars into YCSB/src/com/yahoo/ycsb/d
 <pre>
   cd apache-cassandra-0.6.1/lib/
   cp *.jar ../../../YCSB/src/com/yahoo/ycsb/db/lib/
-<pre>
+</pre>
