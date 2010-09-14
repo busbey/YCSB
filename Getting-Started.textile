@@ -22,6 +22,6 @@ First, you must obtain the HBase and Cassandra clients.<P>
 
 After downloading the client files, copy the jars into YCSB/src/com/yahoo/ycsb/db/lib/. The db/ directory contains all code for interacting with external databases, and the db/lib/ directory should contain jars for building the connector code. For example:
 <pre>
-cd apache-cassandra-0.6.1/lib/
-cp *.jar ../../../YCSB/src/com/yahoo/ycsb/db/lib/
+  cd apache-cassandra-0.6.1/lib/
+  cp *.jar ../../../YCSB/src/com/yahoo/ycsb/db/lib/
 </pre>
