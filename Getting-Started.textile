@@ -22,27 +22,30 @@ YCSB requires Java 1.5 or newer to build.
   ant
 </PRE>
 
-h3. 3. Build HBase and Cassandra database layers
+h3. 3. Build database layers
 
-First, you must obtain the HBase and Cassandra clients.<P>
+First, you must obtain the clients for each system.<P>
   * HBase: <A HREF="http://hadoop.apache.org/hbase/">http://hadoop.apache.org/hbase/</A> - YCSB has been built with version 0.20.3.
-  * Cassandra: <A HREF="http://cassandra.apache.org/">http://cassandra.apache.org/</A> - YCSB has been built with version 0.6.
+  * Cassandra: <A HREF="http://cassandra.apache.org/">http://cassandra.apache.org/</A> - YCSB has been built with versions 0.5, 0.6 and 0.7.
+  * MongoDB: <A HREF="http://www.mongodb.org/">http://www.mongodb.org/</A> - YCSB has been built with version 1.4.2
 
-After downloading the client files, copy the jars into YCSB/src/com/yahoo/ycsb/db/cassandralib/ and hbaselib/. The db/ directory contains all code for interacting with external databases, and the cassandralib/ and hbaselib/ directories should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set)  . For example:
+After downloading the client files, copy the jars into YCSB/db/<databasename>/lib. The db/ directory contains all code for interacting with external databases, and the lib/ directories for each database should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set)  . For example:
 
 <PRE>
   cd hbase-0.20.3/
-  cp hbase-0.20.3.jar ~/YCSB/src/com/yahoo/ycsb/db/hbaselib/
+  cp hbase-0.20.3.jar ~/YCSB/db/hbase/lib/
   cd lib/
-  cp *.jar ~/YCSB/src/com/yahoo/ycsb/db/hbaselib/
+  cp *.jar ~/YCSB/db/hbase/lib/
 </PRE>
 
 and 
 
 <PRE> 
   cd apache-cassandra-0.6.1/lib/
-  cp *.jar ~/YCSB/src/com/yahoo/ycsb/db/cassandralib/
+  cp *.jar ~/YCSB/db/cassandra-0.6/lib/
 </PRE>
+
+Similar steps are required for MongoDB.
 
 Now, you can use the dbcompile-* targets to build each connector.
 
@@ -50,16 +53,16 @@ Now, you can use the dbcompile-* targets to build each connector.
   cd ~/YCSB/
   ant
   ant dbcompile-hbase
-  ant dbcompile-cassandra
+  ant dbcompile-cassandra-0.6
+  ant dbcompile-cassandra-0.7
+  ant dbcompile-mongodb
 </PRE>
 
-At the end of this process, the ycsb.jar file in the build/ directory will contain all the classes needed to run YCSB, as well as the Cassandra and HBase connector classes.
+At the end of this process, the ycsb.jar file in the build/ directory will contain all the classes needed to run YCSB, as well as the Cassandra,0  HBase and MongoDB connector classes.
 
-Of course, if you don't want both HBase and Cassandra, you can just build one or the other. 
+Of course, if you don't want all of these database bindings, you can just build one or a subset. 
 
 Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions. Some details are listed in [[Using the HBase and Cassandra Libraries]].
-
-<B>Note:</B> In the post 0.1.1 master branch, DB code and libraries have been moved up to YCSB/db. For example, hbase is now in YCSB/db/hbase. So when you copy the jars, to appropriate location is now YCSB/db/<databasename>/lib.
 
 h3. 4. Now, run a workload
 
