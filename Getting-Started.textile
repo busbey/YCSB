@@ -62,7 +62,7 @@ At the end of this process, the ycsb.jar file in the build/ directory will conta
 
 Of course, if you don't want all of these database bindings, you can just build one or a subset. 
 
-Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions. Some details are listed in [[Using the HBase and Cassandra Libraries]].
+Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions. Some details are listed in [[Using the Database Libraries]].
 
 h3. 4. Now, run a workload
 
