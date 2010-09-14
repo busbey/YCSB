@@ -29,7 +29,7 @@ First, you must obtain the clients for each system.<P>
   * Cassandra: <A HREF="http://cassandra.apache.org/">http://cassandra.apache.org/</A> - YCSB has been built with versions 0.5, 0.6 and 0.7.
   * MongoDB: <A HREF="http://www.mongodb.org/">http://www.mongodb.org/</A> - YCSB has been built with version 1.4.2
 
-After downloading the client files, copy the jars into YCSB/db/<databasename>/lib. The db/ directory contains all code for interacting with external databases, and the lib/ directories for each database should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set)  . For example:
+After downloading the client files, copy the jars into YCSB/db/&lt;databasename&gt;/lib. The db/ directory contains all code for interacting with external databases, and the lib/ directories for each database should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set)  . For example:
 
 <PRE>
   cd hbase-0.20.3/
