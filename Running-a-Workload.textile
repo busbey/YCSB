@@ -62,12 +62,10 @@ For example, consider the benchmark workload A (more details about the standard 
 %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada
 </pre>
 A few notes about this command:
-<UL>
+ * The "-load" parameter tells the Client to execute the <I>data</I> section of the workload.
+ * The "-db" parameter tells the Client which DB interface layer to use. In this case, we used the dummy BasicDB layer. You can also specify this as a property in your parameters file using the "db" property (for example, "db=com.yahoo.ycsb.BasicDB"). 
+ * The "-P" parameter is used to load property files. In this case, we used it to load the workloada parameter file.
 
-<LI>The "-load" parameter tells the Client to execute the <I>data</I> section of the workload.
-<LI>The "-db" parameter tells the Client which DB interface layer to use. In this case, we used the dummy BasicDB layer. You can also specify this as a property in your parameters file using the "db" property (for example, "db=com.yahoo.ycsb.BasicDB"). 
-<LI>The "-P" parameter is used to load property files. In this case, we used it to load the workloada parameter file.
-</UL>
 If you used BasicDB, you would see the insert statements for the database. If you used a real DB interface layer, the records would be loaded into the database.
 <P>
 The standard workload paramter files create very small databases; for example, workloada creates only 1,000 records. This is useful while debugging your setup. However, to run an actual benchmark you'll want to generate a much larger database. For example, imagine you want to load 100 million records. Then, you will need to override the default "recordcount" property in the workloada file. This can be done in one of two ways:
