@@ -18,8 +18,8 @@
 
 There are many new serving databases available, including:
 <ul>
-<LI><a href="http://twiki.corp.yahoo.com/view/YDHT/WebHome">Sherpa</a>
-<LI>BigTable
+<LI><a href="http://www.brianfrankcooper.net/pubs/pnuts.pdf">PNUTS</a>
+<LI><A HREF="http://labs.google.com/papers/bigtable.html">BigTable</A>
 <ul>
 <LI><A HREF="http://hadoop.apache.org/hbase/">HBase</A>, <A HREF="http://hypertable.org/">Hypertable
 </ul>
