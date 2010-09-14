@@ -18,6 +18,7 @@ The included code works with Cassandra versions 0.5, 0.6 and 0.7. To use YCSB wi
 <LI> Use the com.yahoo.ycsb.db.CassandraClientX class for the DB layer (where X is 5, 6 or 7 for version 0.5, 0.6 or 0.7 respectively)
 <LI> Make sure to define the "hosts" property, either in the configuration properties file (-P on the command line) or on the command line itself (-p on the command line.) Hosts should be a comma separated list of Cassandra server hostnames. Be sure to list all the hostnames, so that the client can load balance its connections among all of the servers.
 <LI> Make sure that the Cassandra jars are available on your classpath, in addition to ycsb.jar.
+<LI> In Cassandra, create a keyspace called "usertable" that includes a column family called "data".
 </OL>
 
 h2. Using the MongoDB library
