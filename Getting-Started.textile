@@ -4,7 +4,8 @@ h3. Obtain YCSB source
 
 Download the latest version:
 
-| YCSB 0.1.0 | <A HREF="http://github.com/brianfrankcooper/YCSB/tarball/0.1.0">[.tar.gz]</A> | <A HREF="http://github.com/brianfrankcooper/YCSB/zipball/0.1.0">[.zip]</A> |
+|_. Version |_. Tarball |_. Zipball |
+| 0.1.0 | <A HREF="http://github.com/brianfrankcooper/YCSB/tarball/0.1.0">[.tar.gz]</A> | <A HREF="http://github.com/brianfrankcooper/YCSB/zipball/0.1.0">[.zip]</A> |
 
 Via git:
 
