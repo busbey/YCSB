@@ -120,7 +120,7 @@ Once the data is loaded, you can execute the workload. This is done by telling t
 To execute the workload, you can use the following command:
 
 <PRE>
-%  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s > transactions.dat
+  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s > transactions.dat
 </PRE>
 
 The main difference in this invocation is that we used the "-t" parameter to tell the Client to use the <I>transaction</I> section instead of the <I>data</I> section. If you used BasicDB, and examine the resulting transactions.dat file, you will see a combination of read and update requests, as well as statistics about the execution.
@@ -129,7 +129,7 @@ The main difference in this invocation is that we used the "-t" parameter to tel
 Typically you will want to use the "-threads" and "-target" parameters to control the amount of offered load. For example, we might want 10 threads attempting a total of 100 operations per second (e.g. 10 operations/sec per thread.) As long as the average latency of operations is not above 100 ms, each thread will be able to carry out its intended 10 operations per second. In general, you need enough threads so that no thread is attempting more operations per second than is possible, otherwise your achieved throughput will be less than the specified target throughput. For this example, we can execute:
 
 <PRE>
-%  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s -threads 10 -target 100 > transactions.dat
+  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s -threads 10 -target 100 > transactions.dat
 </PRE>
 
 Note in this example we have used the "-threads 10" command line parameter to specify 10 threads, and "-target 100" command line parameter to specify 100 operations per second as the target. Alternatively, both values can be set in your parameters file using the "threads" and "target" properties respectively. For example:
