@@ -58,7 +58,7 @@ Now, you can use the dbcompile-* targets to build each connector.
   ant dbcompile-mongodb
 </PRE>
 
-At the end of this process, the ycsb.jar file in the build/ directory will contain all the classes needed to run YCSB, as well as the Cassandra,0  HBase and MongoDB connector classes.
+At the end of this process, the ycsb.jar file in the build/ directory will contain all the classes needed to run YCSB, as well as the Cassandra,  HBase and MongoDB connector classes.
 
 Of course, if you don't want all of these database bindings, you can just build one or a subset. 
 
