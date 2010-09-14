@@ -3,12 +3,12 @@ YCSB is a framework for benchmarking systems. By itself, it is not particularly 
 h3. To obtain YCSB source
 
 <PRE>
-git clone git://github.com/brianfrankcooper/YCSB.git
+  git clone git://github.com/brianfrankcooper/YCSB.git
 </PRE>
 
 h3. To build the basic package
 
 <PRE>
-cd YCSB
-ant
+  cd YCSB
+  ant
 </PRE>
