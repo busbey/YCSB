@@ -1,14 +1,14 @@
-Welcome to the YCSB wiki!
+Yahoo! Cloud Serving Benchmark (YCSB)
 
 <HR>
 
 <B>User discussion list: </B><P>
-<A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A>
-<A HREF="http://groups.yahoo.com/group/ycsb-users">http://groups.yahoo.com/group/ycsb-users</A>
+<A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A><BR>
+<A HREF="http://groups.yahoo.com/group/ycsb-users">http://groups.yahoo.com/group/ycsb-users</A><P>
 
 <B>Source code:</B><P>
 
-<A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A>
+<A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A><P>
 
 <B>Project page:</B><P>
 
