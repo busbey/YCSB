@@ -11,7 +11,6 @@ The YCSB Client framework will create one instance of your DB class per worker t
 
 <H3>Step 2 - Implement init() if necessary</h3>
 You can perform any initialization of your DB object by implementing the following method
-
 <pre> 
   public void init() throws DBException
 </pre>
