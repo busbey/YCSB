@@ -3,9 +3,15 @@ Welcome to the YCSB wiki!
 <HR>
 
 <B>User discussion list: </B><P>
-ycsb-users@yahoogroups.com
-http://groups.yahoo.com/group/ycsb-users
+<A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A>
+<A HREF="http://groups.yahoo.com/group/ycsb-users">http://groups.yahoo.com/group/ycsb-users</A>
 
 <B>Source code:</B><P>
 
-http://github.com/brianfrankcooper/YCSB/
+<A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A>
+
+<B>Project page:</B><P>
+
+<A HREF="http://research.yahoo.com/Web_Information_Management/YCSB">http://research.yahoo.com/Web_Information_Management/YCSB</A>
+
+<HR>
