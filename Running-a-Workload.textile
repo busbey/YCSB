@@ -21,7 +21,7 @@ The DB interface layer is a java class that execute read, insert, update, delete
 <P>
 The YCSB Client is distributed with a simple dummy interface layer, com.yahoo.ycsb.BasicDB. This layer just prints the operations it would have executed to System.out. It can be useful for ensuring that the client is operating properly, and for debugging your workloads.
 <P>
-Other sample DB interface layer classes are distributed in src/com/yahoo/ycsb/db. See [[Getting Started]] for building the included clients.
+Other sample DB interface layer classes are distributed in src/com/yahoo/ycsb/db. See [[Getting Started]] for building the included clients. See [[Using the HBase and Cassandra Libraries]] for details on how to use the clients while running YCSB.
 
 Note that these classes will not be built using a normal ant execution, and not included in the resulting ycsb.jar. Thus, to use these classes, you will need to 1. have them on your classpath, and 2. have any required libraries also on your classpath. For example, the Cassandra database interface layer is com.yahoo.ycsb.db.CassandraClient, and requires the libthrift.jar (among others) to be accessible on your classpath.
 <P>
