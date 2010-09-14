@@ -40,10 +40,10 @@ Because the properties of the dataset must be known during the <i>loading</i> ph
 <p>
 You specify both the java class and the parameter file on the command line when you run the YCSB Client. The Client will dynamically load your workload class, pass it the properties from the parameters file (and any additional properties specified on the command line) and then execute the workload. This happens both for the <I>loading</I> and <I>transaction</I> phases, as the same properties and workload logic applies to both. For example, if the <I>loading</I> phase creates records with 10 fields, then the <i>transaction</I> phase must know that there are 10 fields it can query and modify.
 <P>
-The CoreWorkload is a package of standard workloads that is distributed with the YCSB and can be used directly. In particular, the CoreWorkload defines a simple mix of read/insert/update/scan operations. The relative frequency of each operation is defined in the parameter file, as are other properties of the workload. Thus, by changing the parameter file, a variety of different concrete workloads can be executed. For more details on the CoreWorkload, see XXX.
+The CoreWorkload is a package of standard workloads that is distributed with the YCSB and can be used directly. In particular, the CoreWorkload defines a simple mix of read/insert/update/scan operations. The relative frequency of each operation is defined in the parameter file, as are other properties of the workload. Thus, by changing the parameter file, a variety of different concrete workloads can be executed. For more details on the CoreWorkload, see [[Core Workloads]].
 
 <P>
-If the CoreWorkload does not satisfy your needs, you can define your own workload by subclassing the com.yahoo.ycsb.Workload class. Details for doing this are XXX.
+If the CoreWorkload does not satisfy your needs, you can define your own workload by subclassing the com.yahoo.ycsb.Workload class. Details for doing this are [Implementing New Workloads]].
 
 <H3>Step 4. Choose the appropriate runtime parameters</H3>
 Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
