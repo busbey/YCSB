@@ -41,5 +41,5 @@ All six workloads have a data set which is similar. Workloads D and E insert rec
 <LI>Delete the data in the database.
 <LI>Reload the database, using workload E's parameter file (workloads/workloade) and the "-load switch to the client.
 
-<LI>Run workload E (using workloads/workloadd and "-t") for a variety of throughputs. This workload inserts records, increasing the size of the database.
+<LI>Run workload E (using workloads/workloade and "-t") for a variety of throughputs. This workload inserts records, increasing the size of the database.
 </OL>
