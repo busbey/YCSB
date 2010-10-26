@@ -25,11 +25,12 @@ YCSB requires Java 1.5 or newer to build.
 h3. 3. Build database layers
 
 First, you must obtain the clients for each system.<P>
-  * HBase: <A HREF="http://hadoop.apache.org/hbase/">http://hadoop.apache.org/hbase/</A> - YCSB has been built with version 0.20.3.
+  * HBase: <A HREF="http://hadoop.apache.org/hbase/">http://hadoop.apache.org/hbase/</A> - YCSB has been built with versions 0.20.3 - 0.20.6
   * Cassandra: <A HREF="http://cassandra.apache.org/">http://cassandra.apache.org/</A> - YCSB has been built with versions 0.5, 0.6 and 0.7.
-  * MongoDB: <A HREF="http://www.mongodb.org/">http://www.mongodb.org/</A> - YCSB has been built with version 1.4.2
+  * MongoDB: <A HREF="http://www.mongodb.org/">http://www.mongodb.org/</A> - YCSB has been built with versions 1.4.2 - 2.2
+  * Voldemort: <A HREF="http://project-voldemort.com/">http://project-voldemort.com/</A> - YCSB has been build with version 0.81
 
-After downloading the client files, copy the jars into YCSB/db/&lt;databasename&gt;/lib. The db/ directory contains all code for interacting with external databases, and the lib/ directories for each database should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set)  . For example:
+After downloading the client files, copy the jars into YCSB/db/&lt;databasename&gt;/lib. The db/ directory contains all code for interacting with external databases, and the lib/ directories for each database should contain jars for building the connector code (a subset of these jars may be sufficient to build the connector code; feel free to find the minimal set). For example:
 
 <PRE>
   cd hbase-0.20.3/
