@@ -45,7 +45,15 @@ and
   cp *.jar ~/YCSB/db/cassandra-0.6/lib/
 </PRE>
 
-Similar steps are required for MongoDB and Voldemort.
+and
+
+<PRE>
+  cd voldemort-0.81/
+  cp dist/voldemort-*0.81.jar ~/YCSB/db/voldemort/lib/
+  cp lib/*.jar ~/code/ycsb/YCSB/db/voldemort/lib/
+</PRE>
+
+Similar steps are required for MongoDB.
 
 Now, you can use the dbcompile-* targets to build each connector.
 
