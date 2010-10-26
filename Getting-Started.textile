@@ -53,7 +53,13 @@ and
   cp lib/*.jar ~/code/ycsb/YCSB/db/voldemort/lib/
 </PRE>
 
-Similar steps are required for MongoDB.
+and
+
+<PRE>
+  cd mongodb/
+  cp mongo-2.2.jar ~/YCSB/db/mongodb/lib/
+  cp slf4j-*.jar ~/YCSB/db/mongodb/lib/
+</PRE>
 
 Now, you can use the dbcompile-* targets to build each connector.
 
