@@ -13,6 +13,9 @@ h2. Links
 
 <A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A><P>
 
+<HR>
+Welcome Michi Mutsuzaki (<A HREF="https://github.com/m1ch1">m1ch1</A>) as a new maintainer of YCSB!
+
 <H2>Overview</H2>
 
 There are many new serving databases available, including:
