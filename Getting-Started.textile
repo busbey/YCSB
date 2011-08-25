@@ -1,4 +1,4 @@
-YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The source tree currently contains code to interface with HBase, Cassandra, MongoDB and Voldemort, but it is straightforward to interface with other database systems - see [[Adding a Database]].
+YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The source tree currently contains code to interface with HBase, Cassandra, MongoDB and Voldemort, but it is straightforward to interface with other database systems - see [[Adding a Database]].  Note that Version 0.1.4 will include code to interface with Infinispan as well.
 
 h3. 1. Obtain YCSB source
 
