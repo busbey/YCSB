@@ -28,6 +28,7 @@ There are many new serving databases available, including:
  * <A HREF="http://couchdb.apache.org/">CouchDB</A>
  * <A HREF="http://project-voldemort.com/">Voldemort</A>
  * <A HREF="http://www.mongodb.org/">MongoDb</A>
+ * <A HREF="http://www.infinispan.org/">Infinispan</A>
  * <A HREF="http://wiki.github.com/cliffmoon/dynomite/dynomite-framework">Dynomite</A>
 ...and many others
 
@@ -37,7 +38,7 @@ The goal of the YCSB project is to develop a framework and common set of workloa
  * The YCSB Client, an extensible workload generator
  * The Core workloads, a set of workload scenarios to be executed by the generator
 
-Although the core workloads provide a well rounded picture of a system's performance, the Client is extensible so that you can define new and different workloads to examine system aspects, or application scenarios, not adequately covered by the core workload. Similarly, the Client is extensible to support benchmarking different databases. Although we include sample code for benchmarking HBase, Cassandra and MongoDB, it is straightforward to write a new interface layer to benchmark your favorite database.
+Although the core workloads provide a well rounded picture of a system's performance, the Client is extensible so that you can define new and different workloads to examine system aspects, or application scenarios, not adequately covered by the core workload. Similarly, the Client is extensible to support benchmarking different databases. Although we include sample code for benchmarking HBase, Cassandra, Infinispan and MongoDB, it is straightforward to write a new interface layer to benchmark your favorite database.
 <P>
 A common use of the tool is to benchmark multiple systems and compare them. For example, you can install multiple systems on the same hardware configuration, and run the same workloads against each system. Then you can plot the performance of each system (for example, as latency versus throughput curves) to see when one system does better than another.
 
