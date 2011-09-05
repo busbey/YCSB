@@ -1,11 +1,6 @@
-A PHP code example.
+h1. MongoDB
 
-bc.. <?php
-function hello() {
-// display a hello message
+h2. Run
 
-print "Hello, World";
-}
-?>
-
-p. Following paragraph.
+bc.. wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.8.3.tgz
+tar xfvz mongodb-linux-x86_64-1.8.3.tgz
