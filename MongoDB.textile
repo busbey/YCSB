@@ -1,2 +1,11 @@
-bc..
-test
+A PHP code example.
+
+bc.. <?php
+function hello() {
+// display a hello message
+
+print "Hello, World";
+}
+?>
+
+p. Following paragraph.
