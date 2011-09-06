@@ -18,5 +18,6 @@ ant dbcompile-mongodb
 
 h2. Run YCSB
 
+bc..
 java -cp build/ycsb.jar:db/mongodb/lib/* com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.db.MongoDbClient -p mongodb.database=mytestdb -p mongodb.url=mongodb://localhost:27017 -P workloads/workloada -s 
 java -cp build/ycsb.jar:db/mongodb/lib/* com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.db.MongoDbClient -p mongodb.database=mytestdb -p mongodb.url=mongodb://localhost:27017 -P workloads/workloada -s 
