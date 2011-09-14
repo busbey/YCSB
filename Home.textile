@@ -54,4 +54,5 @@ Note: YCSB is newly released into open source as of 4/23/2010. We believe this d
 
 h2. Other links
 
-[[Related Projects]]
+* [[Related Projects]]
+* Redis benchmark by "Robert Lehmann":https://github.com/lehmannro - "http://robertlehmann.de/img/redis.pdf":http://robertlehmann.de/img/redis.pdf 
