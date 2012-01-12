@@ -31,6 +31,7 @@ There are many new serving databases available, including:
  * <A HREF="http://www.infinispan.org/">Infinispan</A>
  * <A HREF="http://wiki.github.com/cliffmoon/dynomite/dynomite-framework">Dynomite</A>
  * <A HREF="http://redis.io/">Redis</A>
+ * <A HREF="http://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html">GemFire/A>
 ...and many others
 
 It is difficult to decide which system is right for your application, partially because the features differ between systems, and partially because there is not an easy way to compare the performance of one system versus another.
