@@ -31,3 +31,19 @@ The included code works with MongoDB version 1.4.2. To use YCSB with MongoDB:
 <LI> You can also define mongodb.database (for example, "ycsb") and mongodb.writeConcern (to "normal", "strict" or "none")
 <LI> Make sure that the MongoDB jar, the slf4j jars, and the log4j jar are available on your classpath, in addition to ycsb.jar.
 </OL>
+
+h2. Using the JDBC library
+
+The included code works with JDBC. To use YCSB with JDBC driver:
+
+<OL>
+<LI> Take mysql as an example, first make sure the corresponding JDBC driver is installed. 
+<LI> For mysql, it's "mysql-connector-java"
+<LI> Then make sure the DB driver class, JDBC url, and login credentials are correct
+<LI> db.driver=com.mysql.jdbc.Driver
+<LI> db.url=jdbc:mysql://localhost:3306/dbname
+<LI> db.user=username
+<LI> db.passwd=password
+<LI>
+<LI> Make sure that the mysql-connector-java-*.jar are available on your classpath, in addition to ycsb.jar
+</OL>
