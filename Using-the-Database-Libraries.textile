@@ -34,16 +34,14 @@ The included code works with MongoDB version 1.4.2. To use YCSB with MongoDB:
 
 h2. Using the JDBC library
 
-The included code works with JDBC. To use YCSB with JDBC driver:
+The included code works with JDBC. to use YCSB with JDBC driver with MySQL as an example:
 
 <OL>
-<LI> Take mysql as an example, first make sure the corresponding JDBC driver is installed. 
-<LI> For mysql, it's "mysql-connector-java"
-<LI> Then make sure the DB driver class, JDBC url, and login credentials are correct
-<LI> db.driver=com.mysql.jdbc.Driver
-<LI> db.url=jdbc:mysql://localhost:3306/dbname
-<LI> db.user=username
-<LI> db.passwd=password
-<LI>
-<LI> Make sure that the mysql-connector-java-*.jar are available on your classpath, in addition to ycsb.jar
+<LI> Make sure the corresponding JDBC driver is installed. For mysql, it's "mysql-connector-java"
+<LI> Make sure the DB driver class, JDBC url, and login credentials are correct in the config file
+<pre><code>db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/dbname
+db.user=username
+db.passwd=password</code></pre><LI> Make sure that the mysql-connector-java-*.jar are available on your classpath, in addition to ycsb.jar
+<LI> In MySQL, make sure the corresponding DATABASE and TABLE are created before testing.
 </OL>
