@@ -1,5 +1,12 @@
 <h1><IMG SRC="http://research.yahoo.com/files/ycsb.jpg" width=150>&nbsp;&nbsp;&nbsp;Yahoo! Cloud Serving Benchmark (YCSB)</H1>
 
+h2. News
+
+A beta release of YCSB 0.1.4 is available for download. Give it a try!
+
+"https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4-beta-0.tar.gz":https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4-beta-0.tar.gz
+
+
 Latest version tag: 0.1.3 <A HREF="http://github.com/brianfrankcooper/YCSB/tarball/0.1.3">[.tar.gz]</A> <A HREF="http://github.com/brianfrankcooper/YCSB/zipball/0.1.3">[.zip]</A>
 
 h2. Links
