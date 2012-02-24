@@ -29,6 +29,12 @@ Or clone the git repository and build:
 
 Systems may have additional requirements for running clients.  For example, HBase requires the client be able to contact Zookeeper.  See <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description</A> for HBase-specific instructions. Some details are listed in [[Using the Database Libraries]].
 
+You will be using the `ycsb` command to interact with YCSB. Run:
+
+    $ ./bin/ycsb
+
+to see the usage. 
+
 ## 2. Now, run a workload
 
 See [[Running a Workload]].
