@@ -59,9 +59,9 @@ If the CoreWorkload does not satisfy your needs, you can define your own workloa
 
 Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
 
-* **-threads : the number of client threads**. By default, the YCSB Client uses a single worker thread, but additional threads can be specified. This is often done to increase the amount of load offered against the database.
-* **-target : the target number of operations per second**. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each. 
-* **-s : status**. for a long running workload, it may be useful to have the Client report status, just to assure you it has not crashed and to give you some idea of its progress. By specifying "-s" on the command line, the Client will report status every 10 seconds to stderr.
+- `-threads` : **the number of client threads**. By default, the YCSB Client uses a single worker thread, but additional threads can be specified. This is often done to increase the amount of load offered against the database.
+- `-target` : **the target number of operations per second**. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each. 
+- `-s` : **status**. for a long running workload, it may be useful to have the Client report status, just to assure you it has not crashed and to give you some idea of its progress. By specifying "-s" on the command line, the Client will report status every 10 seconds to stderr.
 
 ## Step 5. Load the data
 
@@ -158,7 +158,8 @@ Similar statistics are available for the read operations.
 
 While a histogram of latencies is often useful, sometimes a timeseries is more useful. To request a time series, specify the "measurementtype=timeseries" property on the Client command line or in a properties file. By default, the Client will report average latency for each interval of 1000 milliseconds. You can specify a different granularity for reporting using the "timeseries.granularity" property. For example:
 
-    $ ./bin/ycsb run basic -P workloads/workloada -P large.dat -s -threads 10 -target 100 -p measurementtype=timeseries -p timeseries.granularity=2000 > transactions.dat
+    $ ./bin/ycsb run basic -P workloads/workloada -P large.dat -s -threads 10 -target 100 -p \
+        measurementtype=timeseries -p timeseries.granularity=2000 > transactions.dat
 
 will report a timeseries, with readings averaged every 2,000 milliseconds (e.g. 2 seconds). The result will be:
 
