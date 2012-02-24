@@ -17,8 +17,9 @@ It is straightforward to interface with other database systems - see [[Adding a 
 
 Download the latest version:
 
-    wget http://github.com/brianfrankcooper/YCSB/tarball/0.1.4 # .tar.gz
-    wget http://github.com/brianfrankcooper/YCSB/zipball/0.1.4 # .zip
+    wget https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz
+    tar xfvz ycsb-0.1.4.tar.gz
+    cd ycsb-0.1.4
 
 Or clone the git repository and build:
 
