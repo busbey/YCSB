@@ -56,165 +56,135 @@ The CoreWorkload is a package of standard workloads that is distributed with the
 If the CoreWorkload does not satisfy your needs, you can define your own workload by subclassing the com.yahoo.ycsb.Workload class. Details for doing this are [[Implementing New Workloads]].
 
 ## Step 4. Choose the appropriate runtime parameters
-Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
-<UL>
-<LI><B>Threads</B>: the number of client threads. By default, the YCSB Client uses a single worker thread, but additional threads can be specified. This is often done to increase the amount of load offered against the database.
-<LI><B>Target</B>: the target number of operations per second. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each. 
-<LI><B>Status</B>: for a long running workload, it may be useful to have the Client report status, just to assure you it has not crashed and to give you some idea of its progress. By specifying "-s" on the command line, the Client will report status every 10 seconds to System.err.
-</UL>
-<H3>Step 5. Load the data</H3>
 
-Workloads have two executable phases: the <I>loading</I> phase (which defines the data to be inserted) and the <I>transactions</I> phase (which defines the operations to be executed against the data set.) To load the data, you run the YCSB Client and tell it to execute the <I>loading</I> section.
-<P>
+Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
+
+* **-threads : the number of client threads**. By default, the YCSB Client uses a single worker thread, but additional threads can be specified. This is often done to increase the amount of load offered against the database.
+* **-target : the target number of operations per second**. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each. 
+* **-s : status**. for a long running workload, it may be useful to have the Client report status, just to assure you it has not crashed and to give you some idea of its progress. By specifying "-s" on the command line, the Client will report status every 10 seconds to stderr.
+
+## Step 5. Load the data
+
+Workloads have two executable phases: the **_loading_** phase (which defines the data to be inserted) and the **_transactions_** phase (which defines the operations to be executed against the data set). To load the data, you run the YCSB Client and tell it to execute the **_loading_** section.
+
 For example, consider the benchmark workload A (more details about the standard workloads are in [[Core Workloads]]). To load the standard dataset:
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada
-</PRE>
+    $ ./bin/ycsb load basic -P workloads/workloada
 
 A few notes about this command:
- * The "-load" parameter tells the Client to execute the <I>data</I> section of the workload.
- * The "-db" parameter tells the Client which DB interface layer to use. In this case, we used the dummy BasicDB layer. You can also specify this as a property in your parameters file using the "db" property (for example, "db=com.yahoo.ycsb.BasicDB"). 
- * The "-P" parameter is used to load property files. In this case, we used it to load the workloada parameter file.
+
+* The `load` parameter tells the Client to execute the **_loading_** section of the workload.
+* The `basic` parameter tells the Client to use the dummy BasicDB layer. You can also specify this as a property in your parameters file using the "db" property (for example, "db=com.yahoo.ycsb.BasicDB"). 
+* The "-P" parameter is used to load property files. In this case, we used it to load the workloada parameter file.
 
 If you used BasicDB, you would see the insert statements for the database. If you used a real DB interface layer, the records would be loaded into the database.
-<P>
-The standard workload paramter files create very small databases; for example, workloada creates only 1,000 records. This is useful while debugging your setup. However, to run an actual benchmark you'll want to generate a much larger database. For example, imagine you want to load 100 million records. Then, you will need to override the default "recordcount" property in the workloada file. This can be done in one of two ways:
-<OL>
-<LI>Specifying a new property file containing a new value of "recordcount." If this file is specified on the command line after the workloada file, it will override any properties in workloada. For example, create a file called "large.dat" with the single line:
 
-<PRE>
-  recordcount=100000000
-</PRE>
+The standard workload parameter files create very small databases; for example, workloada creates only 1,000 records. This is useful while debugging your setup. However, to run an actual benchmark you'll want to generate a much larger database. For example, imagine you want to load 100 million records. Then, you will need to override the default "recordcount" property in the workloada file. This can be done in one of two ways:
 
+* Specifying a new property file containing a new value of `recordcount`. If this file is specified on the command line after the workloada file, it will override any properties in workloada. For example, create a file called "large.dat" with the single line:
+
+        recordcount=100000000
 Then, run the client as follows:
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat
-</PRE>
+        $ ./bin/ycsb load basic -P workloads/workloada -P large.dat
+The client will load both property files, but will use the value of `recordcount` from the last file it loaded, e.g. large.dat.
 
-The client will load both property files, but will use the value of recordcount from the last file it loaded, e.g. large.dat
-<LI>Specify a new value of the "recordcount" property on the command line. Any properties specified on the command line override properties specified in property files. In this case, run the client as follows:
+* Specify a new value of the `recordcount` property on the command line. Any properties specified on the command line override properties specified in property files. In this case, run the client as follows:
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada -p recordcount=100000000
-</PRE>
+        $ ./bin/ycsb load basic -P workloads/workloada -p recordcount=100000000
 
-</OL>
 In general, it is good practice to store any important properties in new parameter files, instead of specifying them on the command line. This makes your benchmark results more reproducible; instead of having to reconstruct the exact command line you used, you just reuse the property files. Note, however, that the YCSB Client will print out its command line when it begins executing, so if you store the output of the client in a data file, you can retrieve the command line from that file.
-<P>
+
 Because a large database load will take a long time, you may wish to 1. require the Client to produce status, and 2. direct any output to a datafile. Thus, you might execute the following to load your database:
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s > load.dat
-</PRE>
+    $ ./bin/ycsb load basic -P workloads/workloada -P large.dat -s > load.dat
 
-The "-s" parameter will require the Client to produce status report on System.err. Thus, the output of this command might be:
+The `-s` parameter will require the Client to produce status report on stderr. Thus, the output of this command might be:
 
-<PRE>
-  % java -cp build/ycsb.jar com.yahoo.ycsb.Client -load -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s > load.dat
-  Loading workload... (might take a few minutes in some cases for large data sets)
-  Starting test.
-  0 sec: 0 operations
-  10 sec: 61731 operations; 6170.6317473010795 operations/sec
-  20 sec: 129054 operations; 6450.76477056883 operations/sec
-  ...
-</PRE>
+    $ ./bin/ycsb load basic -P workloads/workloada -P large.dat -s > load.dat
+    Loading workload... (might take a few minutes in some cases for large data sets)
+    Starting test.
+    0 sec: 0 operations
+    10 sec: 61731 operations; 6170.6317473010795 operations/sec
+    20 sec: 129054 operations; 6450.76477056883 operations/sec
+    ...
 
-This status output will help you to see how quickly load operations are executing (so you can estimate the completion time of the load) as well as verify that the load is making progress.
-<P>
-When the load completes, the Client will report statistics about the performance of the load. These statistics are the same as in the transaction phase, so see below for information on interpreting those statistics.
-<H3>Step 6: Execute the workload</H3>
-Once the data is loaded, you can execute the workload. This is done by telling the client to run the <i>transaction</I> section of the workload.
-<P>
-To execute the workload, you can use the following command:
+This status output will help you to see how quickly load operations are executing (so you can estimate the completion time of the load) as well as verify that the load is making progress. When the load completes, the Client will report statistics about the performance of the load. These statistics are the same as in the transaction phase, so see below for information on interpreting those statistics.
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s > transactions.dat
-</PRE>
+## Step 6: Execute the workload
 
-The main difference in this invocation is that we used the "-t" parameter to tell the Client to use the <I>transaction</I> section instead of the <I>data</I> section. If you used BasicDB, and examine the resulting transactions.dat file, you will see a combination of read and update requests, as well as statistics about the execution.
+Once the data is loaded, you can execute the workload. This is done by telling the client to run the **_transaction_** section of the workload. To execute the workload, you can use the following command:
 
-<P>
-Typically you will want to use the "-threads" and "-target" parameters to control the amount of offered load. For example, we might want 10 threads attempting a total of 100 operations per second (e.g. 10 operations/sec per thread.) As long as the average latency of operations is not above 100 ms, each thread will be able to carry out its intended 10 operations per second. In general, you need enough threads so that no thread is attempting more operations per second than is possible, otherwise your achieved throughput will be less than the specified target throughput. For this example, we can execute:
+    $ ./bin/ycsb run basic -P workloads/workloada -P large.dat -s > transactions.dat
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s -threads 10 -target 100 > transactions.dat
-</PRE>
+The main difference in this invocation is that we used the `run` parameter to tell the Client to use the **_transaction_** section instead of the **_loading_** section. If you used BasicDB, and examine the resulting transactions.dat file, you will see a combination of read and update requests, as well as statistics about the execution.
 
-Note in this example we have used the "-threads 10" command line parameter to specify 10 threads, and "-target 100" command line parameter to specify 100 operations per second as the target. Alternatively, both values can be set in your parameters file using the "threadcount" and "target" properties respectively. For example:
+Typically you will want to use the `-threads` and `-target` parameters to control the amount of offered load. For example, we might want 10 threads attempting a total of 100 operations per second (e.g. 10 operations/sec per thread.) As long as the average latency of operations is not above 100 ms, each thread will be able to carry out its intended 10 operations per second. In general, you need enough threads so that no thread is attempting more operations per second than is possible, otherwise your achieved throughput will be less than the specified target throughput. For this example, we can execute:
 
-<PRE>
-  threadcount=10
-  target=100
-</PRE>
+    $ ./bin/ycsb run basic -P workloads/workloada -P large.dat -s -threads 10 -target 100 > transactions.dat
 
-<P>
+Note in this example we have used the `-threads 10` command line parameter to specify 10 threads, and `-target 100` command line parameter to specify 100 operations per second as the target. Alternatively, both values can be set in your parameters file using the `threadcount` and `target` properties respectively. For example:
 
-At the end of the run, the Client will report performance statistics on System.out. In the above example, these statistics will be written to the transactions.dat file. The default is to produce average, min, max, 95th and 99th percentile latency for each operation type (read, update, etc.), a count of the return codes for each operation, and a histogram of latencies for each operation. The return codes are defined by your database interface layer, and allow you to see if there were any errors during the workload. For the above example, we might get output like:
+    threadcount=10
+    target=100
 
-<PRE>
-  [OVERALL],RunTime(ms), 10110
-  [OVERALL],Throughput(ops/sec), 98.91196834817013
-  [UPDATE], Operations, 491
-  [UPDATE], AverageLatency(ms), 0.054989816700611
-  [UPDATE], MinLatency(ms), 0
-  [UPDATE], MaxLatency(ms), 1
-  [UPDATE], 95thPercentileLatency(ms), 1
-  [UPDATE], 99thPercentileLatency(ms), 1
-  [UPDATE], Return=0, 491
-  [UPDATE], 0, 464
-  [UPDATE], 1, 27
-  [UPDATE], 2, 0
-  [UPDATE], 3, 0
-  [UPDATE], 4, 0
-  ...
-</PRE>
+At the end of the run, the Client will report performance statistics on stdout. In the above example, these statistics will be written to the transactions.dat file. The default is to produce average, min, max, 95th and 99th percentile latency for each operation type (read, update, etc.), a count of the return codes for each operation, and a histogram of latencies for each operation. The return codes are defined by your database interface layer, and allow you to see if there were any errors during the workload. For the above example, we might get output like:
+
+    [OVERALL],RunTime(ms), 10110
+    [OVERALL],Throughput(ops/sec), 98.91196834817013
+    [UPDATE], Operations, 491
+    [UPDATE], AverageLatency(ms), 0.054989816700611
+    [UPDATE], MinLatency(ms), 0
+    [UPDATE], MaxLatency(ms), 1
+    [UPDATE], 95thPercentileLatency(ms), 1
+    [UPDATE], 99thPercentileLatency(ms), 1
+    [UPDATE], Return=0, 491
+    [UPDATE], 0, 464
+    [UPDATE], 1, 27
+    [UPDATE], 2, 0
+    [UPDATE], 3, 0
+    [UPDATE], 4, 0
+    ...
 
 This output indicates:
-<UL>
-<LI>The total execution time was 10.11 seconds
-<LI>The average throughput was 98.9 operations/sec (across all threads)
-<LI>There were 491 update operations, with associated average, min, max, 95th and 99th percentile latencies 
-<LI>All 491 update operations had a return code of zero (success in this case)
-<LI>464 operations completed in less than 1 ms, while 27 completed between 1 and 2 ms.
-</UL>
+
+- The total execution time was 10.11 seconds
+- The average throughput was 98.9 operations/sec (across all threads)
+- There were 491 update operations, with associated average, min, max, 95th and 99th percentile latencies 
+- All 491 update operations had a return code of zero (success in this case)
+- 464 operations completed in less than 1 ms, while 27 completed between 1 and 2 ms.
+
 Similar statistics are available for the read operations.
-<P>
+
 While a histogram of latencies is often useful, sometimes a timeseries is more useful. To request a time series, specify the "measurementtype=timeseries" property on the Client command line or in a properties file. By default, the Client will report average latency for each interval of 1000 milliseconds. You can specify a different granularity for reporting using the "timeseries.granularity" property. For example:
 
-<PRE>
-  %  java -cp build/ycsb.jar com.yahoo.ycsb.Client -t -db com.yahoo.ycsb.BasicDB -P workloads/workloada -P large.dat -s -threads 10 -target 100 -p measurementtype=timeseries -p timeseries.granularity=2000 > transactions.dat
-</PRE>
+    $ ./bin/ycsb run basic -P workloads/workloada -P large.dat -s -threads 10 -target 100 -p measurementtype=timeseries -p timeseries.granularity=2000 > transactions.dat
 
 will report a timeseries, with readings averaged every 2,000 milliseconds (e.g. 2 seconds). The result will be:
 
-<PRE>
-  [OVERALL],RunTime(ms), 10077
-  [OVERALL],Throughput(ops/sec), 9923.58836955443
-  [UPDATE], Operations, 50396
-  [UPDATE], AverageLatency(ms), 0.04339630129375347
-  [UPDATE], MinLatency(ms), 0
-  [UPDATE], MaxLatency(ms), 338
-  [UPDATE], Return=0, 50396
-  [UPDATE], 0, 0.10264765784114054
-  [UPDATE], 2000, 0.026989343690867442
-  [UPDATE], 4000, 0.0352882703777336
-  [UPDATE], 6000, 0.004238958990536277
-  [UPDATE], 8000, 0.052813085033008175
-  [UPDATE], 10000, 0.0
-  [READ], Operations, 49604
-  [READ], AverageLatency(ms), 0.038242883638416256
-  [READ], MinLatency(ms), 0
-  [READ], MaxLatency(ms), 230
-  [READ], Return=0, 49604
-  [READ], 0, 0.08997245741099663
-  [READ], 2000, 0.02207505518763797
-  [READ], 4000, 0.03188493260913297
-  [READ], 6000, 0.004869141813755326
-  [READ], 8000, 0.04355329949238579
-  [READ], 10000, 0.005405405405405406
-</PRE>
+    [OVERALL],RunTime(ms), 10077
+    [OVERALL],Throughput(ops/sec), 9923.58836955443
+    [UPDATE], Operations, 50396
+    [UPDATE], AverageLatency(ms), 0.04339630129375347
+    [UPDATE], MinLatency(ms), 0
+    [UPDATE], MaxLatency(ms), 338
+    [UPDATE], Return=0, 50396
+    [UPDATE], 0, 0.10264765784114054
+    [UPDATE], 2000, 0.026989343690867442
+    [UPDATE], 4000, 0.0352882703777336
+    [UPDATE], 6000, 0.004238958990536277
+    [UPDATE], 8000, 0.052813085033008175
+    [UPDATE], 10000, 0.0
+    [READ], Operations, 49604
+    [READ], AverageLatency(ms), 0.038242883638416256
+    [READ], MinLatency(ms), 0
+    [READ], MaxLatency(ms), 230
+    [READ], Return=0, 49604
+    [READ], 0, 0.08997245741099663
+    [READ], 2000, 0.02207505518763797
+    [READ], 4000, 0.03188493260913297
+    [READ], 6000, 0.004869141813755326
+    [READ], 8000, 0.04355329949238579
+    [READ], 10000, 0.005405405405405406
 
-This output shows separate time series for update and read operations, with data reported every 2000 milliseconds. The data reported for a time point is the average over the previous 2000 milliseconds only. (In this case we used 100,000 operations and a target of 10,000 operations per second for a more interesting output.) A note about latency measurements: the Client measures the end to end latency of executing a particular operation against the database. That is, it starts a timer before calling the appropriate method in the DB interface layer
-class, and stops the timer when the method returns. Thus latencies include: executing inside the interface layer, network latency to the database server, and database execution time. They do not include delays introduced for throttling the target throughput. That is, if you specify a target of 10 operations per second (and a single thread) then the Client will only execute an operation every 100 milliseconds. If the operation takes 12 milliseconds, then the client will wait for an additional 88 milliseconds before trying the next operation. However, the reported latency will not include this wait time; a latency of 12 milliseconds, not 100, will be reported.
+This output shows separate time series for update and read operations, with data reported every 2000 milliseconds. The data reported for a time point is the average over the previous 2000 milliseconds only. (In this case we used 100,000 operations and a target of 10,000 operations per second for a more interesting output). A note about latency measurements: the Client measures the end to end latency of executing a particular operation against the database. That is, it starts a timer before calling the appropriate method in the DB interface layer class, and stops the timer when the method returns. Thus latencies include: executing inside the interface layer, network latency to the database server, and database execution time. They do not include delays introduced for throttling the target throughput. That is, if you specify a target of 10 operations per second (and a single thread) then the Client will only execute an operation every 100 milliseconds. If the operation takes 12 milliseconds, then the client will wait for an additional 88 milliseconds before trying the next operation. However, the reported latency will not include this wait time; a latency of 12 milliseconds, not 100, will be reported.
