@@ -31,7 +31,7 @@ Systems may have additional requirements for running clients.  For example, HBas
 
 You will be using the `ycsb` command to interact with YCSB. Run:
 
-    $ ./bin/ycsb
+    ./bin/ycsb
 
 to see the usage. 
 
