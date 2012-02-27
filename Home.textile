@@ -2,12 +2,9 @@
 
 h2. News
 
-A beta release of YCSB 0.1.4 is available for download. Give it a try!
+YCSB 0.1.4 ("release note":https://github.com/brianfrankcooper/YCSB/blob/master/CHANGELOG) is available for download. Give it a try!
 
-"https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4-beta-0.tar.gz":https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4-beta-0.tar.gz
-
-
-Latest version tag: 0.1.3 <A HREF="http://github.com/brianfrankcooper/YCSB/tarball/0.1.3">[.tar.gz]</A> <A HREF="http://github.com/brianfrankcooper/YCSB/zipball/0.1.3">[.zip]</A>
+"https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz":https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz
 
 h2. Links
 
