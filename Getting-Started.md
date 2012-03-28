@@ -2,6 +2,7 @@ YCSB is a framework for benchmarking systems. By itself, it is not particularly 
 
 - [Cassandra](http://cassandra.apache.org/)
 - [VMware vFabric GemFire](http://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html)
+- [GigaSpaces XAP](http://www.gigaspaces.com/xap)
 - [HBase](http://hbase.apache.org/)
 - [Infinispan](http://www.jboss.org/infinispan)
 - [JDBC](http://www.oracle.com/technetwork/java/javase/jdbc/index.html)
