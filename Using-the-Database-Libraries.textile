@@ -45,3 +45,15 @@ db.user=username
 db.passwd=password</code></pre><LI> Make sure that the mysql-connector-java-*.jar are available on your classpath, in addition to ycsb.jar
 <LI> In MySQL, make sure the corresponding DATABASE and TABLE are created before testing.
 </OL>
+
+h2. Using the DynamoDB library
+  
+The included client works with DynamoDB version 1.3.14.To use YCSB with DynamoDB
+
+<OL> 
+<LI>Use the com.yahoo.ycsb.db.DynamoDBClient class or 'dynamodb' for the DB layer
+<LI>Create an Amazon AWS account - http://aws.amazon.com/
+<LI>Copy your account's security credentials to properties file.Please refer to sample config file at <pre>$DYNAMODB_HOME/conf/AWSCredentials.properties
+<LI>Make sure to define dynamodb.endpoint, dynamodb.primaryKey and dynamodb.awsCredentialsFile properties either on command line or in configuration properties file.Please refer to sample config file at <pre>$DYNAMODB_HOME/conf/dynamodb.properties
+<LI>Create a table called 'usertable' in DynamoDB and provision required read and capacity units - http://calculator.s3.amazonaws.com/calc5.html.
+</OL>
