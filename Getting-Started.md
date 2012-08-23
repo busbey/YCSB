@@ -1,6 +1,7 @@
 YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The current YCSB release (0.1.4) contains code to interface with the following systems:
 
 - [Cassandra](http://cassandra.apache.org/)
+- [DynamoDB](http://aws.amazon.com/dynamodb/)
 - [VMware vFabric GemFire](http://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html)
 - [GigaSpaces XAP](http://www.gigaspaces.com/xap)
 - [HBase](http://hbase.apache.org/)
