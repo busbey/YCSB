@@ -16,6 +16,6 @@ The property files used with the core workload generator can specify values for 
 <LI><b>insertorder</b>: should records be inserted in order by key ("ordered"), or in hashed order ("hashed") (default: hashed) 
 <LI><b>operationcount</b>: Number of operations to perform. 
 <LI><b>maxexecutiontime</b>: Maximum execution time in seconds. The benchmark runs until either the operation count has exhausted or the maximum specified time has elapsed, whichever is earlier.
-
+<LI><b>table</b>: The name of the table (defaults to "usertable")
 
 </UL>
