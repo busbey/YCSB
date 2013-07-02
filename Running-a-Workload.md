@@ -77,7 +77,7 @@ A few notes about this command:
 * The `basic` parameter tells the Client to use the dummy BasicDB layer. You can also specify this as a property in your parameters file using the "db" property (for example, "db=com.yahoo.ycsb.BasicDB"). 
 * The "-P" parameter is used to load property files. In this case, we used it to load the workloada parameter file.
 
-To load the HBase dataset:
+To load the `HBase` dataset:
 
     $ ./bin/ycsb load hbase -P workloads/workloada -p columnfamily=family
 
@@ -86,6 +86,7 @@ A few notes about this command:
 * The `hbase` parameter tells the Client to use the HBase layer. 
 * The `-P` parameter is used to load property files. In this case, we used it to load the workloada parameter file.
 * The `-p` parameter is used to set parameter. In this `HBase` case, we used it to set database column. You should have database `usertable` with column `family` before running this command. Then all data will be loaded into database `usertable` with column `family`.
+* Make sure you have already started `Hadoop` and `HBase` before you run this command.
 
 If you used BasicDB, you would see the insert statements for the database. If you used a real DB interface layer, the records would be loaded into the database.
 
