@@ -57,7 +57,7 @@ If the CoreWorkload does not satisfy your needs, you can define your own workloa
 
 ## Step 4. Choose the appropriate runtime parameters
 
-Although the workload class and paramters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
+Although the workload class and parameters file define a specific workload, there are additional settings that you may want to specify for a particular run of the benchmark. These settings are provided on the command line when you run the YCSB client. These settings are:
 
 - `-threads` : **the number of client threads**. By default, the YCSB Client uses a single worker thread, but additional threads can be specified. This is often done to increase the amount of load offered against the database.
 - `-target` : **the target number of operations per second**. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each. 
