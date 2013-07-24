@@ -50,7 +50,7 @@ Although the core workloads provide a well rounded picture of a system's perform
 <P>
 A common use of the tool is to benchmark multiple systems and compare them. For example, you can install multiple systems on the same hardware configuration, and run the same workloads against each system. Then you can plot the performance of each system (for example, as latency versus throughput curves) to see when one system does better than another.
 
-A paper describing the benchmark and some results is <A HREF="http://research.yahoo.com/node/3202">here</A>.
+A paper describing the benchmark and some results is <A HREF="http://labs.yahoo.com/files/ycsb.pdf">here</A>.
 
 h2. Next
 
