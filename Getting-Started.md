@@ -9,6 +9,7 @@ YCSB is a framework for benchmarking systems. By itself, it is not particularly 
 - [JDBC](http://www.oracle.com/technetwork/java/javase/jdbc/index.html)
 - [MapKeeper](https://github.com/m1ch1/mapkeeper)
 - [MongoDB](http://www.mongodb.org/)
+- [OrientDB](http://www.orientdb.org/)
 - [Oracle NoSQL Database](http://www.oracle.com/technetwork/database/nosqldb/overview/index.html)
 - [Redis](http://redis.io/)
 - [Voldemort](http://project-voldemort.com/)
