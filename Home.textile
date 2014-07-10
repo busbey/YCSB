@@ -32,6 +32,7 @@ There are many new serving databases available, including:
  * <A HREF="http://couchdb.apache.org/">CouchDB</A>
  * <A HREF="http://project-voldemort.com/">Voldemort</A>
  * <A HREF="http://www.mongodb.org/">MongoDb</A>
+ * <A HREF="http://www.orientdb.org/">OrientDB</A>
  * <A HREF="http://www.infinispan.org/">Infinispan</A>
  * <A HREF="http://wiki.github.com/cliffmoon/dynomite/dynomite-framework">Dynomite</A>
  * <A HREF="http://redis.io/">Redis</A>
