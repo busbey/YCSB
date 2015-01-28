@@ -1,4 +1,5 @@
 <H2>Core YCSB properties</H2>
+<p>All workload files can specify the following properties:</p>
 <UL>
 <LI><b>workload</b>: workload class to use (e.g. com.yahoo.ycsb.workloads.CoreWorkload)</LI>
 <LI><b>db</b>: database class to use. Alternatively this may be specified on the command line. (default: com.yahoo.ycsb.BasicDB)</LI>
@@ -9,7 +10,7 @@
 </UL>
 
 <H2>Core workload package properties</h2>
-The property files used with the core workload generator can specify values for the following properties:
+<p>The property files used with the core workload generator can specify values for the following properties:</p>
 <UL>
 <LI><b>fieldcount</b>: the number of fields in a record (default: 10)
 <LI><b>fieldlength</b>: the size of each field (default: 100)
@@ -27,4 +28,15 @@ The property files used with the core workload generator can specify values for 
 <LI><b>maxexecutiontime</b>: maximum execution time in seconds. The benchmark runs until either the operation count has exhausted or the maximum specified time has elapsed, whichever is earlier.
 <LI><b>table</b>: the name of the table (default: usertable)
 <LI><b>recordcount</b>: number of records to load into the database initially (default: 0)</LI>
+</UL>
+
+<H2>Measurement properties</H2>
+<p>These properties apply to each measurement type:</p>
+<H3>histogram</H3>
+<UL>
+<LI><b>histogram.buckets</b>: number of buckets for histogram output (default: 1000)</LI>
+</UL>
+<H3>timeseries</H3>
+<UL>
+<LI><b>timeseries.granularity</b>: granularity for the timeseries output (default: 1000)</LI>
 </UL>
