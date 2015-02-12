@@ -5,7 +5,7 @@
 <LI><b>db</b>: database class to use. Alternatively this may be specified on the command line. (default: com.yahoo.ycsb.BasicDB)</LI>
 <LI><b>exporter</b>: measurements exporter class to use (default: com.yahoo.ycsb.measurements.exporter.TextMeasurementsExporter)</LI>
 <LI><b>exportfile</b>: path to a file where output should be written instead of to stdout (default: undefined/write to stdout)</LI>
-<LI><b>threadcount</b>: number of YCSB client threads. Alternatively this may be specified on the command line. (default: 1)</LI>
+<LI><b>threads</b>: number of YCSB client threads. Alternatively this may be specified on the command line. (default: 1)</LI>
 <LI><b>measurementtype</b>: supported measurement types are histogram and timeseries (default: histogram)</LI>
 </UL>
 
