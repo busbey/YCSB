@@ -24,7 +24,7 @@ Welcome Michi Mutsuzaki (<A HREF="https://github.com/m1ch1">m1ch1</A>) as a new 
 
 There are many new serving databases available, including:
  * <a href="http://www.brianfrankcooper.net/pubs/pnuts.pdf">PNUTS</a>
- * <A HREF="http://labs.google.com/papers/bigtable.html">BigTable</A>
+ * <A HREF="http://research.google.com/archive/bigtable.html">BigTable</A>
  * <A HREF="http://hadoop.apache.org/hbase/">HBase</A>
  * <A HREF="http://hypertable.org/">Hypertable
  * <A HREF="http://www.microsoft.com/windowsazure/">Azure</A>
