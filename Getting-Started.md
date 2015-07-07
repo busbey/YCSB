@@ -18,6 +18,8 @@ It is straightforward to interface with other database systems - see [[Adding a 
 
 ## 1. Obtain YCSB
 
+If you'll be running on Windows, please start by referencing [our prerequisites for Windows](https://github.com/brianfrankcooper/YCSB/wiki/Prerequisites-for-Windows).
+
 Download the latest version:
 
     wget https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz
