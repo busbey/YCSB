@@ -1,18 +1,20 @@
-YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The current YCSB release (0.1.4) contains code to interface with the following systems:
+YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The current YCSB release (0.2.0) contains code to interface with the following systems:
 
+- [Accumulo](https://accumulo.apache.org/)
 - [Cassandra](http://cassandra.apache.org/)
+- [Couchbase](http://www.couchbase.com/)
 - [DynamoDB](http://aws.amazon.com/dynamodb/)
+- [ElasticSearch](https://www.elastic.co/products/elasticsearch)
 - [VMware vFabric GemFire](http://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html)
-- [GigaSpaces XAP](http://www.gigaspaces.com/xap)
 - [HBase](http://hbase.apache.org/)
+- [HyperTable](http://www.hypertable.com/)
 - [Infinispan](http://www.jboss.org/infinispan)
 - [JDBC](http://www.oracle.com/technetwork/java/javase/jdbc/index.html)
-- [MapKeeper](https://github.com/m1ch1/mapkeeper)
 - [MongoDB](http://www.mongodb.org/)
 - [OrientDB](http://www.orientdb.org/)
-- [Oracle NoSQL Database](http://www.oracle.com/technetwork/database/nosqldb/overview/index.html)
 - [Redis](http://redis.io/)
-- [Voldemort](http://project-voldemort.com/)
+- [Tarantool](http://tarantool.org/)
+
 
 It is straightforward to interface with other database systems - see [[Adding a Database]].
 
@@ -22,9 +24,9 @@ If you'll be running on Windows, please start by referencing [our prerequisites 
 
 Download the latest version:
 
-    wget https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz
-    tar xfvz ycsb-0.1.4.tar.gz
-    cd ycsb-0.1.4
+    curl -O https://github.com/brianfrankcooper/YCSB/releases/download/0.2.0/ycsb-0.2.0.tar.gz
+    tar xfvz ycsb-0.2.0.tar.gz
+    cd ycsb-0.2.0
 
 Or clone the git repository and build:
 
