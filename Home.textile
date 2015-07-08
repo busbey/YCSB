@@ -2,9 +2,9 @@
 
 h2. News
 
-YCSB 0.1.4 ("release note":https://github.com/brianfrankcooper/YCSB/blob/master/CHANGELOG) is available for download. Give it a try!
+YCSB 0.2.0 ("release note":https://github.com/brianfrankcooper/YCSB/releases/tag/0.2.0) is available for download. Give it a try!
 
-"https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz":https://github.com/downloads/brianfrankcooper/YCSB/ycsb-0.1.4.tar.gz
+"https://github.com/brianfrankcooper/YCSB/releases/download/0.2.0/ycsb-0.2.0.tar.gz":https://github.com/brianfrankcooper/YCSB/releases/download/0.2.0/ycsb-0.2.0.tar.gz
 
 h2. Links
 
