@@ -51,23 +51,33 @@ Creating a release staging branch involves a couple of git commands and updating
 
 
 ```bash
-  $ git checkout master
-  $ # We presume a clean working directory
-  $ git status
-# On branch master
-nothing to commit (working directory clean)
-  $ git checkout -b "${VERSION}-staging"
-Switched to a new branch '${VERSION}-staging'
-  $ git checkout master
-  $ # you'll need to update the version number across master
-  $ # list of files
-  $ grep -rl "${VERSION}-SNAPSHOT" *
-  $ # e.g. edit in vim and replace with the next -SNAPSHOT version
-  $ vim `grep -rl "${VERSION}-SNAPSHOT" *`
-23 files to edit
-  $ git add -p
-  $ git commit -m "[version] update master to ${NEXT_VERSION}-SNAPSHOT."
-  $ git push origin ${VERSION}-staging master
+  #!/bin/bash
+  #
+  # Script to create a new staging branch.  This assumes that the master 
+  # branch is checked out and the working directory is clean.
+  #
+  # To confirm changes before checking them in, replace the -A option 
+  # to "git add" below with -p.
+  #
+
+  # Update the following two variables before running this script.
+  VERSION=0.3.0
+  NEXT_VERSION=0.4.0
+
+  # Create the new branch.
+  git branch ${VERSION}-staging
+
+  # Update the version string to the next version number.
+  FROM=${VERSION}-SNAPSHOT
+  TO=${NEXT_VERSION}-SNAPSHOT
+
+  FILES="`grep -rl -- ${VERSION}-SNAPSHOT *`"
+
+  echo "$FILES" | xargs sed -i "s/$FROM/$TO/"
+  git add -A
+  git commit -m "[version] update master to $TO."
+
+  git push origin ${VERSION}-staging master
 ```
 
 If any changes are merged into master before you attempt to push the update version numbers you'll receive an error like this:
@@ -110,32 +120,49 @@ Testing in the release conversation should always be done on a release candidate
 Before tagging a release candidate, you will need to update the version in the repo. In this example, we'll use the placeholder ```${RC_NUMBER}``` for the current release candidate, i.e. ```RC_NUMBER="RC1"``` for the first release candidate.
 
 ```bash
-  $ git checkout "${VERSION}-staging"
-  $ # We presume a clean working directory
-  $ git status
-# On branch ${VERSION}-staging
-nothing to commit (working directory clean)
-  $ grep -rl "-SNAPSHOT" *
-  $ # e.g. edit in vim and replace -SNAPSHOT versions with one for the RC
-  $ # on the first RC, this will be replacing ${VERSION}-SNAPSHOT with ${VERSION}-RC1
-  $ # on subsequent RCs it will be ${VERSION}-${RC_NUMBER}-SNAPSHOT with ${VERSION}-${RC_NUMBER}
-  $ vim `grep -rl "-SNAPSHOT" *`
-23 files to edit
-  $ git add -p
-  $ git commit -m "[release] mark ${VERSION} ${RC_NUMBER}"
-  $ # Now create a tag that we can reference on github
-  $ git tag "${VERSION}-${RC_NUMBER}"
-  $ # Now update the versions so that the repo will be -SNAPSHOT for the next candidate.
-  $ # that way fixes that come in during testing can be picked back here now
-  $ # files that need updating
-  $ grep -rl "${VERSION}-${RC_NUMBER}"
-  $ # e.g edit in vim and replace ${VERSION}-RC1 with ${VERSION}-RC2-SNAPSHOT
-  $ vim `grep -rl "${VERSION}-${RC_NUMBER}"`
-23 files to edit
-  $ git add -p
-  $ git commit -m "[release] update version for ${NEXT_RC_NUMBER}"
-  $ # finally push all of this up to GitHub
-  $ git push origin ${VERSION}-staging ${VERSION}-${RC_NUMBER}
+  #!/bin/bash
+  #
+  # Script to help generate a new release candidate.  This assumes that 
+  # the master branch is checked out and the working directory is clean.
+  #
+  # To confirm changes before checking them in, replace the -A option 
+  # to "git add" below with -p.
+  #
+
+  # Update the following two variables before running this script.
+  VERSION=0.3.0
+  RC_NUM=2
+
+  RC_NUMBER=RC${RC_NUM}
+  NEXT_RC_NUMBER=RC$((${RC_NUM} + 1))
+  RC_VERSION=${VERSION}-${RC_NUMBER}
+
+  git checkout ${VERSION}-staging
+
+  # Modify version string from SNAPSHOT to RC.
+  test $RC_NUM = 1 && FROM=${VERSION}-SNAPSHOT || FROM=${RC_VERSION}-SNAPSHOT
+  TO=$RC_VERSION
+
+  FILES="`grep -rl -- -SNAPSHOT *`"
+
+  echo "$FILES" | xargs sed -i "s/$FROM/$TO/"
+  git add -A
+  git commit -m "[release] mark ${VERSION} ${RC_NUMBER}"
+
+  # Now create a tag that we can reference on GitHub.
+  git tag $RC_VERSION
+
+  # Modify version string from RC to the next RC snapshot.  Now fixes
+  # that come in during testing can be picked back here for files that
+  # need updating.
+  FROM=$RC_VERSION
+  TO=${VERSION}-${NEXT_RC_NUMBER}-SNAPSHOT
+  echo "$FILES" | xargs sed -i "s/$FROM/$TO/"
+  git add -A
+  git commit -m "[release] update version for ${NEXT_RC_NUMBER}"
+
+  # Finally push all of this up to GitHub.
+  git push origin ${VERSION}-staging $RC_VERSION
 ```
 
 Now the YCSB repo should have all of your changes available on GitHub.
