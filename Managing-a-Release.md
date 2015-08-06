@@ -11,6 +11,10 @@ In order, we're going to cover
 * [Generate a Release Candidate](#generate-a-release-candidate) explains how to make artifacts folks can use for testing
 * [Collect Test Feedback](#collect-test-feedback) to make sure that fixes to problems that show up in testing the release make it into future release candidates and ultimately the release
 * [Stage Release Notes](#stage-release-notes) to make sure that we give our downstream users a useful guide to the work we've done
+* [Publish Release](#publish-release) and tie all of our work together
+* [Announce Release](#announce-release) so that downstream folks know that they can update
+* [Clean up](#clean-up) git branches and issues used while forming the release
+* [Examples](#examples) will give you pointers to previous releases
 
 # Assumptions
 This document has several assumptions built into it. We'll attempt to cover them briefly to reduce stumbling blocks.
@@ -53,10 +57,10 @@ Creating a release staging branch involves a couple of git commands and updating
 ```bash
   #!/bin/bash
   #
-  # Script to create a new staging branch.  This assumes that the master 
+  # Script to create a new staging branch.  This assumes that the master
   # branch is checked out and the working directory is clean.
   #
-  # To confirm changes before checking them in, replace the -A option 
+  # To confirm changes before checking them in, replace the -A option
   # to "git add" below with -p.
   #
 
@@ -122,10 +126,10 @@ Before tagging a release candidate, you will need to update the version in the r
 ```bash
   #!/bin/bash
   #
-  # Script to help generate a new release candidate.  This assumes that 
+  # Script to help generate a new release candidate.  This assumes that
   # the master branch is checked out and the working directory is clean.
   #
-  # To confirm changes before checking them in, replace the -A option 
+  # To confirm changes before checking them in, replace the -A option
   # to "git add" below with -p.
   #
 
@@ -177,7 +181,7 @@ Now the YCSB repo should have all of your changes available on GitHub.
 Here's an example template for a Release Candidate description
 
 >  UPPERCASE WARNING: THIS IS A RELEASE CANDIDATE AND IS NOT INTENDED FOR DOWNSTREAM USE.
-> 
+>
 > This source is a candidate for release _version_. Please see #_release issue_ for testing instructions and where to leave your feedback.
 >
 > Compared to the previous release, this candidate includes
@@ -197,9 +201,9 @@ Here's the fix landing in master:
 
 ```
 *   ecadf1f - (HEAD, master) Merge pull request #323 from bigbes/master (3 weeks ago)
-|\  
+|\
 | * 25e0ec8 - Issue #319: [tarantool] Error on scan operation and replace problems (3 weeks ago)
-|/  
+|/
 *   45631e8 - Merge pull request #304 from gkamat/issue-278 (3 weeks ago)
 ```
 
@@ -216,49 +220,49 @@ And here's how master compared to the 0.2.0-staging branch at the time:
 * fb9c41a - [release] update version for RC2 (4 weeks ago)
 * 7bc13d8 - (0.2.0-RC1) [release] mark 0.2.0 RC1 (4 weeks ago)
 | *   ecadf1f - (HEAD, master) Merge pull request #323 from bigbes/master (3 weeks ago)
-| |\  
+| |\
 | | * 25e0ec8 - Issue #319: [tarantool] Error on scan operation and replace problems (3 weeks ago)
-| |/  
+| |/
 | *   45631e8 - Merge pull request #304 from gkamat/issue-278 (3 weeks ago)
-| |\  
+| |\
 | | * 1c3db41 - [hbase] Update to commit 80b74a94359179a60032289e5a115dec1bf6ee8b. Pass original exception back when issues discovered during initialization. (4 weeks ago)
 | | *   6d85b13 - Merge remote-tracking branch 'upstream/master' into issue-278 (4 weeks ago)
-| | |\  
+| | |\
 | | * \   2517e26 - Merge remote-tracking branch 'upstream/master' into issue-278 (4 weeks ago)
-| | |\ \  
-| |_|/ /  
-|/| | |   
+| | |\ \
+| |_|/ /
+|/| | |
 | | * |   36194ed - Merge branch 'issue-278' of https://github.com/gkamat/YCSB into issue-278 (4 weeks ago)
-| | |\ \  
-| | | * | d59ce9b - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors 
-| | * | | 80b74a9 - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors 
-| | |/ /  
+| | |\ \
+| | | * | d59ce9b - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors
+| | * | | 80b74a9 - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors
+| | |/ /
 | * | |   9bc02d2 - Merge pull request #301 from saggarsunil/master (3 weeks ago)
-| |\ \ \  
+| |\ \ \
 | | * \ \   ba66be6 - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | |\ \ \  
+| | |\ \ \
 | | | * \ \   c4e3943 - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | | |\ \ \  
+| | | |\ \ \
 | | * | \ \ \   ea22a7b - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | |\ \ \ \ \  
-| | | |/ / / /  
-| | |/| / / /   
-| | | |/ / /    
+| | |\ \ \ \ \
+| | | |/ / / /
+| | |/| / / /
+| | | |/ / /
 | | | * | | 42b39f5 - Changes: 1. mongodb configuration parameter bug (mongodb.url) 2. README file change 3. Some cleanup. Default DB is 'ycsb' (4 weeks ago)
 | | * | | | 4cfd40f - [mongodb] update parameter for connection url to match previous behavior and docs. Changes: 1. mongodb configuration parameter bug (mongodb.url) 2. README file change 3. Some cleanup
-| | |/ / /  
+| | |/ / /
 | * | | |   7dcbb32 - Merge pull request #305 from gkamat/issue_302 (4 weeks ago)
-| |\ \ \ \  
-| | |_|_|/  
-| |/| | |   
+| |\ \ \ \
+| | |_|_|/
+| |/| | |
 | | * | | 2559ce6 - [scripts] Include only the binding-specific jars and conf directory in the classpath, rather than all of them. (4 weeks ago)
 | | * | |   be6c4d9 - Merge branch 'master' of https://github.com/brianfrankcooper/YCSB into issue_302 (4 weeks ago)
-| | |\ \ \  
+| | |\ \ \
 | | * | | | ced4306 - [scripts] Add only the conf directory for the relevant binding to the classpath, rather than all of them. (4 weeks ago)
-| | | |_|/  
-| | |/| |   
+| | | |_|/
+| | |/| |
 | * | | | 9c80044 - [version] update master to 0.3.0-SNAPSHOT. (4 weeks ago)
-|/ / / /  
+|/ / / /
 * | | |   700b71c - Merge pull request #307 from busbey/issue-297 (4 weeks ago)
 ```
 
@@ -285,49 +289,49 @@ Now you can see the comparison of the branches after:
 * fb9c41a - [release] update version for RC2 (4 weeks ago)
 * 7bc13d8 - (0.2.0-RC1) [release] mark 0.2.0 RC1 (4 weeks ago)
 | *   ecadf1f - (master) Merge pull request #323 from bigbes/master (3 weeks ago)
-| |\  
+| |\
 | | * 25e0ec8 - Issue #319: [tarantool] Error on scan operation and replace problems (3 weeks ago)
-| |/  
+| |/
 | *   45631e8 - Merge pull request #304 from gkamat/issue-278 (3 weeks ago)
-| |\  
+| |\
 | | * 1c3db41 - [hbase] Update to commit 80b74a94359179a60032289e5a115dec1bf6ee8b. Pass original exception back when issues discovered during initialization. (4 weeks ago)
 | | *   6d85b13 - Merge remote-tracking branch 'upstream/master' into issue-278 (4 weeks ago)
-| | |\  
+| | |\
 | | * \   2517e26 - Merge remote-tracking branch 'upstream/master' into issue-278 (4 weeks ago)
-| | |\ \  
-| |_|/ /  
-|/| | |   
+| | |\ \
+| |_|/ /
+|/| | |
 | | * |   36194ed - Merge branch 'issue-278' of https://github.com/gkamat/YCSB into issue-278 (4 weeks ago)
-| | |\ \  
-| | | * | d59ce9b - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors 
-| | * | | 80b74a9 - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors 
-| | |/ /  
+| | |\ \
+| | | * | d59ce9b - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors
+| | * | | 80b74a9 - [hbase] Verify that the table exists during DB binding initialization and bail out if not found.  If this is not checked here, the workload will continue running and generating errors
+| | |/ /
 | * | |   9bc02d2 - Merge pull request #301 from saggarsunil/master (3 weeks ago)
-| |\ \ \  
+| |\ \ \
 | | * \ \   ba66be6 - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | |\ \ \  
+| | |\ \ \
 | | | * \ \   c4e3943 - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | | |\ \ \  
+| | | |\ \ \
 | | * | \ \ \   ea22a7b - Merge branch 'master' of https://github.com/saggarsunil/YCSB (4 weeks ago)
-| | |\ \ \ \ \  
-| | | |/ / / /  
-| | |/| / / /   
-| | | |/ / /    
+| | |\ \ \ \ \
+| | | |/ / / /
+| | |/| / / /
+| | | |/ / /
 | | | * | | 42b39f5 - Changes: 1. mongodb configuration parameter bug (mongodb.url) 2. README file change 3. Some cleanup. Default DB is 'ycsb' (4 weeks ago)
 | | * | | | 4cfd40f - [mongodb] update parameter for connection url to match previous behavior and docs. Changes: 1. mongodb configuration parameter bug (mongodb.url) 2. README file change 3. Some cleanup
-| | |/ / /  
+| | |/ / /
 | * | | |   7dcbb32 - Merge pull request #305 from gkamat/issue_302 (4 weeks ago)
-| |\ \ \ \  
-| | |_|_|/  
-| |/| | |   
+| |\ \ \ \
+| | |_|_|/
+| |/| | |
 | | * | | 2559ce6 - [scripts] Include only the binding-specific jars and conf directory in the classpath, rather than all of them. (4 weeks ago)
 | | * | |   be6c4d9 - Merge branch 'master' of https://github.com/brianfrankcooper/YCSB into issue_302 (4 weeks ago)
-| | |\ \ \  
+| | |\ \ \
 | | * | | | ced4306 - [scripts] Add only the conf directory for the relevant binding to the classpath, rather than all of them. (4 weeks ago)
-| | | |_|/  
-| | |/| |   
+| | | |_|/
+| | |/| |
 | * | | | 9c80044 - [version] update master to 0.3.0-SNAPSHOT. (4 weeks ago)
-|/ / / /  
+|/ / / /
 * | | |   700b71c - Merge pull request #307 from busbey/issue-297 (4 weeks ago)
 ```
 
@@ -337,15 +341,38 @@ Since the release staging branch doesn't maintain the git history for the origin
   $ git cherry-pick --edit 25e0ec8
 ```
 
-An example of a good commit message follows.
+For example, in the commint for #319 we'd prefer to have the issue number after the first line.
 
-TODO
+```
+[tarantool] Error on scan operation and replace problems
+
+fixes #319
+```
+
 
 In some cases, you'll need to cherry pick multiple commits. The main caveat in that case is to make sure you pick them in the same order they were originally applied (bottom up if you're looking at the git log).
 
 If the fix you need came from a feature branch with multiple merges, or if any of those merges involved substantive changes you'll need to use some more advanced git features. Ask for help on the release issue and someone will help out. (and hopefully update this document!)
 
 For more information on git cherry-pick, check out [the cherry-pick section of Think Like a Git](http://think-like-a-git.net/sections/rebase-from-the-ground-up/cherry-picking-explained.html).
+
+Before pushing your cherry picked changes to GitHub, ensure the build still passes and minimally that the basic binding works.
+
+```bash
+$ mvn clean package
+...SNIP...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 06:14 min
+[INFO] Finished at: Mon Jul 06 00:34:07 CDT 2015
+[INFO] Final Memory: 81M/756M
+[INFO] ------------------------------------------------------------------------
+$ bin/ycsb load basic -P workloads/workloada -p recordcount=4
+...SNIP...
+```
+
+You should see four INSERT statements, followed by some stats prefixed with [OVERALL], [CLEANUP], and [INSERT]. There should be no errors.
 
 # Stage Release Notes
 
@@ -375,41 +402,241 @@ Once you have consensus that the release is ready and an appropriate set of rele
 
 ## Finalize Version
 
+Our staging branch should still be set to the version for a potential new release candidate. Once you've decided candidates are no longer needed, you'll need to update to a finalized version.
+
+Our goal is to go from e.g. 0.3.0-RC4-SNAPSHOT to 0.3.0.
+
+```bash
+  #!/bin/bash
+  #
+  # Script to help finalize the release number.  This assumes that
+  # the staging branch is checked out and the working directory is clean.
+  #
+  # To confirm changes before checking them in, replace the -A option
+  # to "git add" below with -p.
+  #
+
+  # Update the following two variables before running this script.
+  VERSION=0.3.0
+  RC_NUM=4
+
+  RC_NUMBER=RC${RC_NUM}
+  RC_VERSION=${VERSION}-${RC_NUMBER}
+
+  git checkout ${VERSION}-staging
+
+  # Modify version string from RC SNAPSHOT to final.
+  FROM=${RC_VERSION}-SNAPSHOT
+  TO=$VERSION
+
+  FILES="`grep -rl -- -SNAPSHOT *`"
+
+  echo "$FILES" | xargs sed -i "s/$FROM/$TO/"
+  git add -A
+  git commit -m "[release] mark ${VERSION} ${RC_NUMBER}"
+
+  # Now create a tag that we can reference on GitHub.
+  git tag $VERSION
+
+  # Finally push all of this up to GitHub.
+  git push origin ${VERSION}-staging $VERSION
+```
+
+You should ensure you can properly build the convenience artifacts before tagging the branch and pushing it to GitHub.
+
 ## Build Convenience Artifacts
+
+First, make sure you have the local tools we'll use. Your maven will need to be 3.2+ and you JVM must be Java 7.
+
+Use the `mvn --version` command to check your build tool versions. In the example below, we can see the maven version is *3.2.3* and Java is *Oracle's JDK 1.7.0_51*.
+```bash
+$ mvn -version
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T15:58:10-05:00)
+Maven home: /usr/local/Cellar/maven/3.2.3/libexec
+Java version: 1.7.0_51, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
+
+```
+
+Additionally, you'll need to generate various digests of the convenience artifacts. The easiest way to handle this is to use [gpg](https://www.gnupg.org/). You should ensure it includes support for SHA512.
+
+Use the `gpg --version` command and look for the line that starts with "Hash":
+```bash
+$ gpg --version
+gpg (GnuPG) 1.4.18
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, RSA-E, RSA-S, ELG-E, DSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+```
+
+First, build the project using the Java 7 sdk you verified above.
+
+```bash
+$ mvn clean package
+...SNIP...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 06:14 min
+[INFO] Finished at: Mon Jul 06 00:34:07 CDT 2015
+[INFO] Final Memory: 81M/756M
+[INFO] ------------------------------------------------------------------------
+```
+
+Gather up all of the convenience artifacts that you'll eventually publish. This should include any datastore binding specific artifacts that were tested in the release thread. In the following examples, we're presuming Accumulo, Cassandra, HBase, MongoDB, and Tarantool were tested (this was the set tested in 0.2.0). Note that not all of the bindings tested will have artifacts.
+
+```bash
+$ cp distribution/target/*.tar.gz /some/path/to/a/ycsb-0.3.0-release-dist/
+$ find . -name '*.tar.gz' -and \( -path '*/accumulo/target/*' -or -path '*/cassandra/target/*' -or \
+         -path '*/hbase/target/*' -or -path '*/mongodb/target/*' -or -path '*/tarantool/target/*' \) \
+         -exec cp {} /some/path/to/a/ycsb-0.3.0-release-dist/ \;
+$ ls -lh /some/path/to/a/ycsb-0.3.0-release-dist
+total 366672
+-rw-r--r--  1 busbey  staff   144M Aug  6 01:37 ycsb-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff    29M Aug  6 01:34 ycsb-hbase-binding-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   4.2M Aug  6 01:34 ycsb-mongodb-binding-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   2.0M Aug  6 01:34 ycsb-tarantool-binding-0.3.0.tar.gz
+```
+
+Finally, you will need to generate a file with digest hashes for each of these artifacts.
+
+```bash
+$ cd /some/path/to/a/ycsb-0.3.0-release-dist
+$ for tarball in `ls -1 *.tar.gz`; do gpg --print-mds "${tarball}" > "${tarball}.mds"; done
+$ ls -lh
+total 366704
+-rw-r--r--  1 busbey  staff   144M Aug  6 01:37 ycsb-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   930B Aug  6 01:49 ycsb-0.3.0.tar.gz.mds
+-rw-r--r--  1 busbey  staff    29M Aug  6 01:34 ycsb-hbase-binding-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   1.2K Aug  6 01:49 ycsb-hbase-binding-0.3.0.tar.gz.mds
+-rw-r--r--  1 busbey  staff   4.2M Aug  6 01:34 ycsb-mongodb-binding-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   1.3K Aug  6 01:49 ycsb-mongodb-binding-0.3.0.tar.gz.mds
+-rw-r--r--  1 busbey  staff   2.0M Aug  6 01:34 ycsb-tarantool-binding-0.3.0.tar.gz
+-rw-r--r--  1 busbey  staff   1.5K Aug  6 01:49 ycsb-tarantool-binding-0.3.0.tar.gz.mds
+```
+
+Each of the files ending in `.mds` should contain a variety of message digests.
+
+e.g. for the primary binary distribution:
+
+```
+ycsb-0.3.0.tar.gz:    MD5 = 46 07 C6 D6 99 4B 62 19  47 93 F2 18 58 49 18 A6
+ycsb-0.3.0.tar.gz:   SHA1 = E070 20B6 2707 3162 AED9  432E 25EB B7C7 4E2E 11D2
+ycsb-0.3.0.tar.gz: RMD160 = B6B4 54B0 014E 4088 90A4  0ED2 828A 5298 43C6 E625
+ycsb-0.3.0.tar.gz: SHA224 = 61195921 C96F33B8 07C8ACBA B42AC6BE 9684971B
+                            84C7ABB2 8541FEEC
+ycsb-0.3.0.tar.gz: SHA256 = E7CA1E5A BE9FA405 546734CB 6F9D9BCB 1AE575D7
+                            E5D42503 08BC37E3 DEED3CE2
+ycsb-0.3.0.tar.gz: SHA384 = 6BF50128 C1F62049 0729FB88 96DBEDA1 9A4F5B8E
+                            34DD25A4 1916261A 39B62908 EFA10753 EA56120E
+                            27C6A173 870BD1CF
+ycsb-0.3.0.tar.gz: SHA512 = 406826AA 1048E88E C9B17427 C31C2A6D 73FBE550
+                            740B4393 B829FAFE E2614905 D2FD9ACD C1BC097B
+                            5F6CA7C3 3624EFC7 4F381C00 BC6A3465 445E1680
+                            9C6E1EF8
+
+```
+
 
 ## Draft Release
 
-TODO link to page, explanation of tag preference, what artifacts to include
+Now that you have workable convenience artifacts, go ahead and push the tag to GitHub.
+
+```bash
+  #!/bin/bash
+  #
+  # Presumes you are on the staging branch.
+
+  # Update the following two variables before running this script.
+  VERSION=0.3.0
+
+  # Now create a tag that we can reference on GitHub.
+  git tag $VERSION
+
+  # Finally push all of this up to GitHub.
+  git push origin ${VERSION}-staging $VERSION
+```
+
+Once the tag exists and all of your convenience artifacts are ready, you can publish the release:
+
+1. Visit the ["Draft new release" page](https://github.com/brianfrankcooper/YCSB/releases/new)
+2. In the "Tag version" field, enter the tag you created above, ```${VERSION}```
+3. Ensure the @ Target branch is the staging branch from above, ```${VERSION}-staging```
+4. Fill in a title of "YCSB _version_", e.g. "YCSB 0.3.0"
+5. Fill in the description with the release notes you drafted above.
+6. Attach all of the convenience artifacts and digest files created above.
+7. Be sure the "this is a pre-release" box is not checked.
 
 # Announce Release
 
 You should let interested communities know that a new version is available. In particular, we try to make sure any of the communities with datastore bindings in the release know.
 
-TODO add template
+You should adapt the below template to highlight significant datastore binding changes and major features. Include a summary line for those datastore bindings that were not tested in the release. If a supported datastore binding did not change the range of versions supported, omit from the general template. Be sure to still list it as supported in the email to that datastore's community.
 
-It's usually helpful to tailor the template to the particular community, especially if you're notifying a datastore community and theirs is in the 'experimental' camp. For example:
+> Subject: [ANNOUNCE] YCSB _version_ Release
+>
+> On behalf of the development community, I am pleased to announce the release of YCSB _version_.
+>
+> Highlights:
+> * DataStore A 2.2 support
+> * DataStore B 1.3 support
+> * DataStore C 0.8.1 support
+> * ~5 additional datastore bindings in experimental status
+> * Some other feature
+>
+> Full release notes, including links to source and convenience binaries:
+>
+> https://github.com/brianfrankcooper/YCSB/releases/tag/_version_
+>
+> This release covers changes from the last X months.
 
-TODO add template w/call out
+It's usually helpful to tailor the template to the particular community, especially if you're notifying a datastore community and theirs is in the 'experimental' camp. For example, when letting the Couchbase community know about the release:
 
-Here's a list of communities we have previously announced our releases in (TODO links):
+> Subject: [ANNOUNCE] YCSB _version_ Release
+>
+> On behalf of the development community, I am pleased to announce the release of YCSB _version_.
+>
+> Highlights:
+> * DataStore A 2.2 support
+> * DataStore B 1.3 support
+> * DataStore C 0.8.1 support
+> * ~5 additional datastore bindings in experimental status (including Couchbase)
+> * Some other feature
+>
+> Full release notes, including links to source and convenience binaries:
+>
+> https://github.com/brianfrankcooper/YCSB/releases/tag/_version_
+>
+> This release covers changes from the last X months.
 
-* user@hbase
-* user@cassandra
-* infinispan forum
-* tarantool group
-* user@accumulo
-* mongodb group
-* couchbase group
-* elasticsearch forum
-* dev@geode
-* hypertable group
-* orientdb group
-* redis group
-* user@phoenix
+Here's a list of communities we have previously announced our releases in:
+
+* [user@hbase](https://mail-archives.apache.org/mod_mbox/hbase-user/)
+* [user@cassandra](https://mail-archives.apache.org/mod_mbox/cassandra-user/)
+* [infinispan forum](https://developer.jboss.org/en/infinispan/)
+* [tarantool group](https://groups.google.com/forum/#!forum/tarantool) (if you read/write Russian, the [russian language tarantool forum](https://groups.google.com/forum/#!forum/tarantool-ru) is more active)
+* [user@accumulo](https://mail-archives.apache.org/mod_mbox/assumulo-user/)
+* [mongodb group](https://groups.google.com/forum/#!forum/mongodb-user)
+* [couchbase forum](https://forums.couchbase.com/c/other-product)
+* [elasticsearch forum](https://discuss.elastic.co/c/ecosystem)
+* [hypertable group](https://groups.google.com/forum/#!forum/hypertable-user)
+* [orientdb group](https://groups.google.com/forum/#!forum/orient-database)
+
 
 # Clean up
 
-Once the release is out, there are a few final steps to take care of. 
+Once the release is out, there are a few final steps to take care of.
 
 * Remove staging branch in git``` $ git push origin :_version_-staging```
 * Close your release issue, include a message that points to the published release
