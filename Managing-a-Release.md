@@ -435,11 +435,8 @@ Our goal is to go from e.g. 0.3.0-RC4-SNAPSHOT to 0.3.0.
   git add -A
   git commit -m "[release] mark ${VERSION}"
 
-  # Now create a tag that we can reference on GitHub.
-  git tag $VERSION
-
   # Finally push all of this up to GitHub.
-  git push origin ${VERSION}-staging $VERSION
+  git push origin ${VERSION}-staging
 ```
 
 You should ensure you can properly build the convenience artifacts before tagging the branch and pushing it to GitHub.
