@@ -433,7 +433,7 @@ Our goal is to go from e.g. 0.3.0-RC4-SNAPSHOT to 0.3.0.
 
   echo "$FILES" | xargs sed -i "s/$FROM/$TO/"
   git add -A
-  git commit -m "[release] mark ${VERSION} ${RC_NUMBER}"
+  git commit -m "[release] mark ${VERSION}"
 
   # Now create a tag that we can reference on GitHub.
   git tag $VERSION
@@ -582,7 +582,12 @@ Once the tag exists and all of your convenience artifacts are ready, you can pub
 
 You should let interested communities know that a new version is available. In particular, we try to make sure any of the communities with datastore bindings in the release know.
 
-You should adapt the below template to highlight significant datastore binding changes and major features. Include a summary line for those datastore bindings that were not tested in the release. If a supported datastore binding did not change the range of versions supported, omit from the general template. Be sure to still list it as supported in the email to that datastore's community.
+You should adapt the template below to highlight significant datastore binding changes and major features. Include a summary line for those datastore bindings that were not tested in the release. If a supported datastore binding did not change the range of versions supported, omit from the general template. Be sure to still list it as supported in the email to that datastore's community.
+
+It's usually helpful to tailor the template to the particular community, by putting their datastore at the top of the list, if it is in the supported category.  If theirs is in the 'experimental' camp, you can mention their datastore, for instance:
+
+"~5 additional datastore bindings in experimental status (including Couchbase)"
+
 
 > Subject: [ANNOUNCE] YCSB _version_ Release
 >
@@ -601,26 +606,7 @@ You should adapt the below template to highlight significant datastore binding c
 >
 > This release covers changes from the last X months.
 
-It's usually helpful to tailor the template to the particular community, especially if you're notifying a datastore community and theirs is in the 'experimental' camp. For example, when letting the Couchbase community know about the release:
-
-> Subject: [ANNOUNCE] YCSB _version_ Release
->
-> On behalf of the development community, I am pleased to announce the release of YCSB _version_.
->
-> Highlights:
-> * DataStore A 2.2 support
-> * DataStore B 1.3 support
-> * DataStore C 0.8.1 support
-> * ~5 additional datastore bindings in experimental status (including Couchbase)
-> * Some other feature
->
-> Full release notes, including links to source and convenience binaries:
->
-> https://github.com/brianfrankcooper/YCSB/releases/tag/_version_
->
-> This release covers changes from the last X months.
-
-Here's a list of communities we have previously announced our releases in:
+Here's a list of communities we have previously announced our releases in (typically, you will need to sign up for an account to post to these boards):
 
 * [user@hbase](https://mail-archives.apache.org/mod_mbox/hbase-user/)
 * [user@cassandra](https://mail-archives.apache.org/mod_mbox/cassandra-user/)
@@ -649,3 +635,4 @@ Once the release is out, there are a few final steps to take care of.
 Below are prior release issues, so you can get a better idea of timing and the kinds of status updates that have been useful before.
 
 * Version 0.2.0 - RM Sean Busbey - #266
+* Version 0.3.0 - RM Govind Kamat - #358
