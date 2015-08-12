@@ -561,8 +561,8 @@ Now that you have workable convenience artifacts, go ahead and push the tag to G
   # Now create a tag that we can reference on GitHub.
   git tag $VERSION
 
-  # Finally push all of this up to GitHub.
-  git push origin ${VERSION}-staging $VERSION
+  # Finally push the tag up to GitHub.
+  git push origin $VERSION
 ```
 
 Once the tag exists and all of your convenience artifacts are ready, you can publish the release:
