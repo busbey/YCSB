@@ -633,3 +633,4 @@ Below are prior release issues, so you can get a better idea of timing and the k
 
 * Version 0.2.0 - RM Sean Busbey - #266
 * Version 0.3.0 - RM Govind Kamat - #358
+* Version 0.3.1 - RM Sean Busbey - [#391](https://github.com/brianfrankcooper/YCSB/issues/391)
