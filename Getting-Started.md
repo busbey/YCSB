@@ -24,9 +24,9 @@ If you'll be running on Windows, please start by referencing [our prerequisites 
 
 Download the latest version:
 
-    curl -O https://github.com/brianfrankcooper/YCSB/releases/download/0.2.0/ycsb-0.2.0.tar.gz
-    tar xfvz ycsb-0.2.0.tar.gz
-    cd ycsb-0.2.0
+    curl -O --location https://github.com/brianfrankcooper/YCSB/releases/download/0.3.0/ycsb-0.3.0.tar.gz
+    tar xfvz ycsb-0.3.0.tar.gz
+    cd ycsb-0.3.0
 
 Or clone the git repository and build:
 
