@@ -42,7 +42,7 @@ For more information on opening tar.gz files see [this article from Tom Harrison
 Example with python.exe installed in `C:\Python27\`, using the 'basic' datastore binding that only echoes transactions:
 ```
         C:\> cd YCSB-0.1.4
-        C:\YCSB-0.1.4> C:\Python27\python.exe bin\ycsb load baisc -P workloads\workloada -p recordcount=4
+        C:\YCSB-0.1.4> C:\Python27\python.exe bin\ycsb load basic -P workloads\workloada -p recordcount=4
         â€¦.SNIPâ€¦.
 ```
 
