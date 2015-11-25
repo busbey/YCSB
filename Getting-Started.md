@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Getting Started
+---
 YCSB is a framework for benchmarking systems. By itself, it is not particularly useful; only when you add code to interface with a data serving system is it useful. The current YCSB release (0.2.0) contains code to interface with the following systems:
 
 - [Accumulo](https://accumulo.apache.org/)

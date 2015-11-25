@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Managing a Release
+---
 > :warning: This page is a guide for folks working directly on the YCSB project. It is unlikely to be of use if you are a downstream user of YCSB. That said, we love it when downstream users decide to pitch in on the project. Let us know if part of this could be clearer.
 
 This document is meant to provide guidance for collaborator who have taken on the responsibility of generating a release.

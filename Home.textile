@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Home
+---
 <h1><IMG SRC="http://research.yahoo.com/files/ycsb.jpg" width=150>&nbsp;&nbsp;&nbsp;Yahoo! Cloud Serving Benchmark (YCSB)</H1>
 
 h2. News

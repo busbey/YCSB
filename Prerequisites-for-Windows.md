@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Prerequisites for Windows
+---
 YCSB is made to run on Windows systems given some additional software. The following instructions are broken into sections based on running from an existing release and building from the source. Users are encouraged to rely on published releases where possible.
 
 # Running from a release

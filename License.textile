@@ -1,1 +1,5 @@
+---
+layout: pages
+title: License
+---
 YCSB is available under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</A>

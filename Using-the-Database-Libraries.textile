@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Using the Database Libraries
+---
 YCSB 0.1.2 includes client code to interact with HBase, Cassandra and MongoDB. This code works with particular versions of each system, and may have to be modified for future versions.
 
 h2. Using the HBase library

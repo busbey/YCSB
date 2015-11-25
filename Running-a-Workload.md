@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Running a Workload
+---
 There are 6 steps to running a workload:
 
 1. Set up the database system to test

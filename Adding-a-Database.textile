@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Adding a Database
+---
 <H2>Implementing a database interface layer - overview</H2>
 The database interface layer hides the details of the specific database you are benchmarking from the YCSB Client. This allows the client to generate operations like "read record" or "update record" without having to understand the specific API of your database. Thus, it is very easy to benchmark new database systems; once you have created the database interface layer, the rest of the benchmark framework runs without having to change.
 <P>

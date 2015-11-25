@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Running a Workload in Parallel
+---
 h2. Running multiple clients in parallel
 
 It is straightforward to run the transaction phase of the workload from multiple servers - just start up clients on different servers, each running the same workload. Each client will produce performance statistics when it is done, and you'll have to aggregate these individual files into a single set of results.

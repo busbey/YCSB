@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Core Properties
+---
 <H2>Core YCSB properties</H2>
 <p>All workload files can specify the following properties:</p>
 <UL>

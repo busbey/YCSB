@@ -1,3 +1,7 @@
+---
+layout: pages
+title: Implementing New Workloads
+---
 h2. Overview
 
 A workload represents the load that a given application will put on the database system. For benchmarking purposes, we must define workloads that are relatively simple compared to real applications, so that we can better reason about the benchmarking results we get. However, a workload should be detailed enough so that once we measure the database's performance, we know what kinds of applications
