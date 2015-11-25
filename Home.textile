@@ -1,0 +1,67 @@
+<h1><IMG SRC="http://research.yahoo.com/files/ycsb.jpg" width=150>&nbsp;&nbsp;&nbsp;Yahoo! Cloud Serving Benchmark (YCSB)</H1>
+
+h2. News
+
+YCSB 0.5.0 ("release note":https://github.com/brianfrankcooper/YCSB/releases/tag/0.5.0) is now available for download. Give it a try!
+
+"https://github.com/brianfrankcooper/YCSB/releases/download/0.5.0/ycsb-0.5.0.tar.gz":https://github.com/brianfrankcooper/YCSB/releases/download/0.5.0/ycsb-0.5.0.tar.gz
+
+h2. Links
+
+<A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A><BR>
+<A HREF="http://groups.yahoo.com/group/ycsb-users">http://groups.yahoo.com/group/ycsb-users</A><P>
+
+[[Papers and Presentations]]
+
+<B>Source code:</B><P>
+
+<A HREF="http://github.com/brianfrankcooper/YCSB/">http://github.com/brianfrankcooper/YCSB/</A><P>
+
+<HR>
+Welcome Michi Mutsuzaki (<A HREF="https://github.com/m1ch1">m1ch1</A>) as a new maintainer of YCSB!
+
+<H2>Overview</H2>
+
+There are many new serving databases available, including:
+ * <a href="http://www.brianfrankcooper.net/pubs/pnuts.pdf">PNUTS</a>
+ * <A HREF="http://research.google.com/archive/bigtable.html">BigTable</A>
+ * <A HREF="http://hadoop.apache.org/hbase/">HBase</A>
+ * <A HREF="http://hypertable.org/">Hypertable
+ * <A HREF="http://www.microsoft.com/windowsazure/">Azure</A>
+ * <A HREF="http://incubator.apache.org/cassandra/">Cassandra</A>
+ * <A HREF="http://couchdb.apache.org/">CouchDB</A>
+ * <A HREF="http://project-voldemort.com/">Voldemort</A>
+ * <A HREF="http://www.mongodb.org/">MongoDb</A>
+ * <A HREF="http://www.orientdb.org/">OrientDB</A>
+ * <A HREF="http://www.infinispan.org/">Infinispan</A>
+ * <A HREF="http://wiki.github.com/cliffmoon/dynomite/dynomite-framework">Dynomite</A>
+ * <A HREF="http://redis.io/">Redis</A>
+ * <A HREF="http://www.vmware.com/products/application-platform/vfabric-gemfire/overview.html">GemFire</A>
+ * <A HREF="http://www.gigaspaces.com/xap">GigaSpaces XAP</A>
+ * <A HREF="http://aws.amazon.com/dynamodb/">DynamoDB</A>
+...and many others
+
+It is difficult to decide which system is right for your application, partially because the features differ between systems, and partially because there is not an easy way to compare the performance of one system versus another.
+<P>
+The goal of the YCSB project is to develop a framework and common set of workloads for evaluating the performance of different "key-value" and "cloud" serving stores. The project comprises two things:
+ * The YCSB Client, an extensible workload generator
+ * The Core workloads, a set of workload scenarios to be executed by the generator
+
+Although the core workloads provide a well rounded picture of a system's performance, the Client is extensible so that you can define new and different workloads to examine system aspects, or application scenarios, not adequately covered by the core workload. Similarly, the Client is extensible to support benchmarking different databases. Although we include sample code for benchmarking HBase, Cassandra, Infinispan and MongoDB, it is straightforward to write a new interface layer to benchmark your favorite database.
+<P>
+A common use of the tool is to benchmark multiple systems and compare them. For example, you can install multiple systems on the same hardware configuration, and run the same workloads against each system. Then you can plot the performance of each system (for example, as latency versus throughput curves) to see when one system does better than another.
+
+A paper describing the benchmark and some results is <A HREF="http://labs.yahoo.com/files/ycsb.pdf">here</A>.
+
+h2. Next
+
+1. [[Getting Started]]
+2. [[Running a Workload]]
+3. [[Adding a Database]]
+
+Note: YCSB is newly released into open source as of 4/23/2010. We believe this documentation is fairly complete, but if you find bugs or inconsistencies, please email <A HREF="mailto:ycsb-users@yahoogroups.com">ycsb-users@yahoogroups.com</A> or <a href="http://github.com/brianfrankcooper/YCSB/issues">file an issue</A>.
+
+h2. Other links
+
+* [[Related Projects]]
+* Redis benchmark by "Robert Lehmann":https://github.com/lehmannro - "http://robertlehmann.de/img/redis.pdf":http://robertlehmann.de/img/redis.pdf 

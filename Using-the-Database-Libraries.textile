@@ -1,0 +1,59 @@
+YCSB 0.1.2 includes client code to interact with HBase, Cassandra and MongoDB. This code works with particular versions of each system, and may have to be modified for future versions.
+
+h2. Using the HBase library
+
+The included code works with HBase version 0.20.3. To use YCSB with HBase:
+
+<OL>
+<LI> Use the com.yahoo.ycsb.db.HBaseClient class for the DB layer
+<LI> The HBase client must know how to contact the HBase Zookeeper instance.  One easy way to do this is to copy hbase-0.20.3/conf/hbase-site.xml from an HBase server to your ycsb directory.   For more details, see <A HREF="http://hadoop.apache.org/hbase/docs/r0.20.3/api/org/apache/hadoop/hbase/client/package-summary.html#package_description">HBase 0.20.3 Client Package Description.</A>
+<LI> Make sure the the HBase jars and ycsb.jar are all available on your classpath.
+</OL>
+
+h2. Using the Cassandra library
+
+The included code works with Cassandra versions 0.5, 0.6 and 0.7. To use YCSB with Cassandra:
+
+<OL>
+<LI> Use the com.yahoo.ycsb.db.CassandraClientX class for the DB layer (where X is 5, 6 or 7 for version 0.5, 0.6 or 0.7 respectively)
+<LI> Make sure to define the "hosts" property, either in the configuration properties file (-P on the command line) or on the command line itself (-p on the command line.) Hosts should be a comma separated list of Cassandra server hostnames. Be sure to list all the hostnames, so that the client can load balance its connections among all of the servers.
+<LI> Make sure that the Cassandra jars are available on your classpath, in addition to ycsb.jar.
+<LI> In Cassandra, create a keyspace called "usertable" that includes a column family called "data".
+</OL>
+
+h2. Using the MongoDB library
+
+The included code works with MongoDB version 1.4.2. To use YCSB with MongoDB:
+
+<OL> 
+<LI>Use the com.yahoo.ycsb.db.MongoDbClient class for the DB layer
+<LI> Make sure to define the mongodb.url property (for example, setting it to "mongodb://localhost:27017").
+<LI> You can also define mongodb.database (for example, "ycsb") and mongodb.writeConcern (to "normal", "strict" or "none")
+<LI> Make sure that the MongoDB jar, the slf4j jars, and the log4j jar are available on your classpath, in addition to ycsb.jar.
+</OL>
+
+h2. Using the JDBC library
+
+The included code works with JDBC. to use YCSB with JDBC driver with MySQL as an example:
+
+<OL>
+<LI> Make sure the corresponding JDBC driver is installed. For mysql, it's "mysql-connector-java"
+<LI> Make sure the DB driver class, JDBC url, and login credentials are correct in the config file
+<pre><code>db.driver=com.mysql.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/dbname
+db.user=username
+db.passwd=password</code></pre><LI> Make sure that the mysql-connector-java-*.jar are available on your classpath, in addition to ycsb.jar
+<LI> In MySQL, make sure the corresponding DATABASE and TABLE are created before testing.
+</OL>
+
+h2. Using the DynamoDB library
+  
+The included client works with DynamoDB version 1.3.14.To use YCSB with DynamoDB
+
+<OL> 
+<LI>Use the com.yahoo.ycsb.db.DynamoDBClient class or 'dynamodb' for the DB layer
+<LI>Create an Amazon AWS account - http://aws.amazon.com/
+<LI>Copy your account's security credentials to properties file.Please refer to sample config file at <pre>$DYNAMODB_HOME/conf/AWSCredentials.properties
+<LI>Make sure to define dynamodb.endpoint, dynamodb.primaryKey and dynamodb.awsCredentialsFile properties either on command line or in configuration properties file.Please refer to sample config file at <pre>$DYNAMODB_HOME/conf/dynamodb.properties
+<LI>Create a table called 'usertable' in DynamoDB and provision required read and capacity units - http://calculator.s3.amazonaws.com/calc5.html.
+</OL>

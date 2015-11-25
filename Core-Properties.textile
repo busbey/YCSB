@@ -1,0 +1,42 @@
+<H2>Core YCSB properties</H2>
+<p>All workload files can specify the following properties:</p>
+<UL>
+<LI><b>workload</b>: workload class to use (e.g. com.yahoo.ycsb.workloads.CoreWorkload)</LI>
+<LI><b>db</b>: database class to use. Alternatively this may be specified on the command line. (default: com.yahoo.ycsb.BasicDB)</LI>
+<LI><b>exporter</b>: measurements exporter class to use (default: com.yahoo.ycsb.measurements.exporter.TextMeasurementsExporter)</LI>
+<LI><b>exportfile</b>: path to a file where output should be written instead of to stdout (default: undefined/write to stdout)</LI>
+<LI><b>threadcount</b>: number of YCSB client threads. Alternatively this may be specified on the command line. (default: 1)</LI>
+<LI><b>measurementtype</b>: supported measurement types are histogram and timeseries (default: histogram)</LI>
+</UL>
+
+<H2>Core workload package properties</h2>
+<p>The property files used with the core workload generator can specify values for the following properties:</p>
+<UL>
+<LI><b>fieldcount</b>: the number of fields in a record (default: 10)
+<LI><b>fieldlength</b>: the size of each field (default: 100)
+<LI><b>readallfields</b>: should reads read all fields (true) or just one (false) (default: true)
+<LI><b>readproportion</b>: what proportion of operations should be reads (default: 0.95)
+<LI><b>updateproportion</b>: what proportion of operations should be updates (default: 0.05)
+<LI><b>insertproportion</b>: what proportion of operations should be inserts (default: 0)
+<LI><b>scanproportion</b>: what proportion of operations should be scans (default: 0)
+<LI><b>readmodifywriteproportion</b>: what proportion of operations should be read a record, modify it, write it back (default: 0)
+<LI><b>requestdistribution</b>: what distribution should be used to select the records to operate on - uniform, zipfian or latest (default: uniform)
+<LI><b>maxscanlength</b>: for scans, what is the maximum number of records to scan (default: 1000)
+<LI><b>scanlengthdistribution</b>: for scans, what distribution should be used to choose the number of records to scan, for each scan, between 1 and maxscanlength (default: uniform)
+<LI><b>insertorder</b>: should records be inserted in order by key ("ordered"), or in hashed order ("hashed") (default: hashed)
+<LI><b>operationcount</b>: number of operations to perform.
+<LI><b>maxexecutiontime</b>: maximum execution time in seconds. The benchmark runs until either the operation count has exhausted or the maximum specified time has elapsed, whichever is earlier.
+<LI><b>table</b>: the name of the table (default: usertable)
+<LI><b>recordcount</b>: number of records to load into the database initially (default: 0)</LI>
+</UL>
+
+<H2>Measurement properties</H2>
+<p>These properties apply to each measurement type:</p>
+<H3>histogram</H3>
+<UL>
+<LI><b>histogram.buckets</b>: number of buckets for histogram output (default: 1000)</LI>
+</UL>
+<H3>timeseries</H3>
+<UL>
+<LI><b>timeseries.granularity</b>: granularity for the timeseries output (default: 1000)</LI>
+</UL>
