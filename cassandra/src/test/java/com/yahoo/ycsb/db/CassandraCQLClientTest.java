@@ -40,6 +40,7 @@ import com.yahoo.ycsb.workloads.CoreWorkload;
 
 import org.cassandraunit.CassandraCQLUnit;
 import org.cassandraunit.dataset.cql.ClassPathCQLDataSet;
+import org.cassandraunit.utils.EmbeddedCassandraServerHelper;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -58,12 +59,19 @@ public class CassandraCQLClientTest {
   private final static String HOST = "localhost";
   private final static int PORT = 9142;
   private final static String DEFAULT_ROW_KEY = "user1";
+  private final static long STARTUP_TIMEOUT_MILLIS = 600L * 1000L;
 
   private CassandraCQLClient client;
   private Session session;
 
   @ClassRule
-  public static CassandraCQLUnit cassandraUnit = new CassandraCQLUnit(new ClassPathCQLDataSet("ycsb.cql", "ycsb"));
+  public static CassandraCQLUnit cassandraUnit = new CassandraCQLUnit(
+      new ClassPathCQLDataSet("ycsb.cql", "ycsb"),
+      EmbeddedCassandraServerHelper.CASSANDRA_RNDPORT_YML_FILE,
+      /* N.B. this must be a long, because the constructor that uses an int in this
+         position is for the read timeout and not start up. :(
+       */
+      STARTUP_TIMEOUT_MILLIS);
 
   @Before
   public void setUp() throws Exception {
